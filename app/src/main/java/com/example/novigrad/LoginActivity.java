@@ -1,5 +1,6 @@
 package com.example.novigrad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,38 +20,6 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseFirestore db;
     TextInputLayout emailInput, passwordInput;
 
-    private class Login {
-        String email, password;
-        public Login(LoginActivity activity) {
-            this.email = this.getText(activity.emailInput);
-            this.password = this.getText(activity.passwordInput);
-        }
-
-        public String getText(TextInputLayout input) {
-            try { return input.getEditText().getText().toString(); }
-            catch (Exception e) {
-                System.out.println("bruh!!!");
-                return null;
-            }
-        }
-
-
-        private boolean stringIsValid(String s) {
-            return (s != null) && (s.length() > 0);
-        }
-
-        public boolean isValid() {
-             return stringIsValid(email) && stringIsValid(password);
-        }
-
-        @Override
-        public String toString() {
-            return "Login{" +
-                    "email='" + email + '\'' +
-                    ", password='" + password + '\'' +
-                    '}';
-        }
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,15 +31,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLogin(final View view) {
-        Login login = new Login(this);
+        LoginData login = new LoginData(this);
         System.out.println(login);
+        if (login.isAdmin()) {
+            // go to admin activity
+            Helper.snackbar(view, "Admin has logged in");
+            Intent intent = new Intent(this, AdminActivity.class);
+            startActivity(intent);
+            return;
+        }
+
         if (!login.isValid()) {
+            // Client side validation only!
             Helper.snackbar(view, "Please enter a valid email and password");
             return;
         }
 
         Task<AuthResult> task = this.mAuth.signInWithEmailAndPassword(login.email, login.password);
         task.addOnCompleteListener(new LoginCompleteListener(this, view));
+    }
+
+    public void startRegisterActivity(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     public void getUser(AuthResult authResult, final View view) {

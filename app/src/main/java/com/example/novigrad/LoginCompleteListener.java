@@ -1,5 +1,6 @@
 package com.example.novigrad;
 
+import android.content.Intent;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -21,7 +22,9 @@ public class LoginCompleteListener implements OnCompleteListener<AuthResult> {
     public void onComplete(@NonNull Task<AuthResult> task) {
         if (task.isSuccessful()) {
             // Login successful
-            this.activity.getUser(task.getResult(), this.view);
+            Intent intent = new Intent(this.activity, WelcomeActivity.class);
+            this.activity.startActivity(intent);
+            //this.activity.getUser(task.getResult(), this.view);
         } else {
             // Login failed
             Helper.snackbar(this.view, "Username or password is incorrect");
