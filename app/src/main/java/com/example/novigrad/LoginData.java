@@ -37,6 +37,6 @@ public class LoginData {
     }
 
     private boolean stringIsValid(String s) {
-        return (s != null) && (s.length() > 0);
+        return (s != null) && (s.length() > 5);
     }
 }
