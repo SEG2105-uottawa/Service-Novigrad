@@ -42,19 +42,20 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void onRegister(final View view) {
-        LoginData login = new LoginData(this);
+        RegisterData registerData = new RegisterData(this);
+        boolean isValid = registerData.isValid(view);
         System.out.println(email.getEditText().getText().toString() + " " + password.getEditText().getText().toString());
-        mAuth.createUserWithEmailAndPassword(this.email.getEditText().getText().toString(), this.password.getEditText().getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Helper.snackbar(view,"Register successful");
-                    FirebaseUser user = mAuth.getCurrentUser();
-                } else {
-                    Helper.snackbar(view, "Register failed");
-                    System.out.println(task.getException());
-                }
-            }
-        });
+//        mAuth.createUserWithEmailAndPassword(this.email.getEditText().getText().toString(), this.password.getEditText().getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if (task.isSuccessful()) {
+//                    Helper.snackbar(view,"Register successful");
+//                    FirebaseUser user = mAuth.getCurrentUser();
+//                } else {
+//                    Helper.snackbar(view, "Register failed");
+//                    System.out.println(task.getException());
+//                }
+//            }
+//        });
     }
 }
