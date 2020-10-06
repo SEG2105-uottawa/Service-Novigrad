@@ -15,44 +15,41 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceHeadline3"
-            android:text="Novigrad"
             android:layout_marginBottom="10dp"
-            />
+            android:text="@string/app_name"
+            android:textAppearance="?attr/textAppearanceHeadline3" />
+
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceHeadline5"
-            android:text="Register"
             android:layout_marginBottom="10dp"
-            />
+            android:text="@string/register"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/firstNameInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="First Name"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:hint="@string/first_name_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lastNameInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Last Name"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:hint="@string/last_name_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -83,16 +80,15 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/confirmPasswordInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Confirm Password"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:hint="@string/confirm_password_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <RadioGroup
@@ -100,27 +96,28 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/accountRadioGroup">
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/customerRadio"
-                android:text="Customer"/>
 
             <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/customerRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/customer_radio" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/employeeRadio"
-                android:text="Employee"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/employee_radio" />
         </RadioGroup>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:id="@+id/btnLogin"
+            android:layout_below="@+id/passwordInput"
             android:layout_marginBottom="10dp"
             android:onClick="onRegister"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_below="@+id/passwordInput"/>
+            android:text="@string/register" />
     </LinearLayout>
 </RelativeLayout>
