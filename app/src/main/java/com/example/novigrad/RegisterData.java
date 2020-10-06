@@ -28,7 +28,6 @@ public class RegisterData {
     }
 
     public boolean isValid(View view) {
-        System.out.println(this.roleSelected);
         if (!nameIsValid(firstName)) {
             Helper.snackbar(view, "First Name invalid");
             return false;
