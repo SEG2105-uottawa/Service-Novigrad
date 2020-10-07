@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         * 2. create user document in firebase firestore
         * 3. send the user to the welcome activity
         * */
-        final RegisterData registerData = new RegisterData(this);
+        RegisterData registerData = new RegisterData(this);
         if (registerData.isValid(view)) {
             this.createUserAuth(registerData, view);
         }
@@ -76,18 +76,20 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void createUserDocument(RegisterData registerData, AuthResult authResult, final View view) {
         /* Create the user in Firebase Fire store */
-        Map<String, Object> userDocument = new User(registerData).toDocument();
+        String uid = authResult.getUser().getUid();
+        User user = new User(registerData, uid);
 
         // Upload to firebase
-        String uid = authResult.getUser().getUid();
-        DocumentReference userRef = db.collection("users").document(uid);
-        userRef.set(userDocument).addOnCompleteListener(new OnCompleteListener<Void>() {
+        DocumentReference userRef = db.collection("users").document(user.getId());
+        userRef.set(user.toDocument()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     RegisterActivity.this.startWelcomeActivity();
                 } else {
                     Helper.snackbar(view, "Register failed: "+ task.getException().getMessage());
+                    // If the document can't be created delete the user from firebase auth
+                    RegisterActivity.this.mAuth.getCurrentUser().delete();
                 }
             }
         });
@@ -95,7 +97,15 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void startWelcomeActivity() {
         /* Start the welcome activity */
+        finish();
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
     }
+
+    public void startLoginActivity(View view) {
+        finish();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
 }

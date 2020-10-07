@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLogin(final View view) {
         LoginData login = new LoginData(this);
-        System.out.println(login);
         if (login.isAdmin()) {
             // go to admin activity
             Intent intent = new Intent(this, AdminActivity.class);
@@ -60,11 +59,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void startRegisterActivity(View view) {
+        finish();
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
 
     public void startWelcomeActivity() {
+        finish();
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
     }
