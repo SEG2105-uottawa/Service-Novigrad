@@ -27,11 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     /* Registers a user */
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-    TextInputLayout firstName;
-    TextInputLayout lastName;
-    TextInputLayout email;
-    TextInputLayout password;
-    TextInputLayout confirmPassword;
+    TextInputLayout firstName, lastName, email, password, confirmPassword;
     RadioGroup roleSelector;
 
     @Override

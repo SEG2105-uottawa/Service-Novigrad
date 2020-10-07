@@ -11,8 +11,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
@@ -47,8 +45,18 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         Task<AuthResult> task = this.mAuth.signInWithEmailAndPassword(login.email, login.password);
-        task.addOnCompleteListener(new LoginCompleteListener(this, view));
-
+        task.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Login successful
+                    LoginActivity.this.startWelcomeActivity();
+                } else {
+                    // Login failed
+                    Helper.snackbar(view, "Username or password is incorrect");
+                }
+            }
+        });
     }
 
     public void startRegisterActivity(View view) {

@@ -9,6 +9,7 @@ public class User {
     private String firstName, lastName, email, role;
 
     public User(RegisterData registerData) {
+        /* Create a user from registration data */
         this.firstName = registerData.firstName;
         this.lastName = registerData.lastName;
         this.email = registerData.email;
@@ -16,26 +17,29 @@ public class User {
     }
 
     public User(DocumentSnapshot userDocument) {
+        /* Create a user from a firebase document (their toDocument method wasn't working) */
         this.firstName = (String) userDocument.get("firstName");
         this.lastName = (String) userDocument.get("lastName");
         this.email = (String) userDocument.get("email");
         this.role = (String) userDocument.get("role");
     }
 
+    public User(String firstName, String lastName, String email, String role) {
+        /* Create a user from raw data */
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.role = role;
+    }
+
     public Map<String, Object> toDocument() {
+        /* Convert the user instance to a map which can be uploaded to firestore */
         Map<String, Object> document = new HashMap<>();
         document.put("firstName", this.firstName);
         document.put("lastName", this.lastName);
         document.put("email", this.email);
         document.put("role", this.role);
         return document;
-    }
-
-    public User(String firstName, String lastName, String email, String role) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.role = role;
     }
 
     public String getEmail() {

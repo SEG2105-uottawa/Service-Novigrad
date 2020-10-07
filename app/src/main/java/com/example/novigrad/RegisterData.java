@@ -31,7 +31,7 @@ public class RegisterData {
 
         // First name validation
         if (!stringIsValid(firstName)) {
-            Helper.snackbar(view, "Register Failed: irst Name is missing");
+            Helper.snackbar(view, "Register Failed: First Name is missing");
             return false;
         }
 
