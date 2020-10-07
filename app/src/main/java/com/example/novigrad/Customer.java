@@ -10,8 +10,8 @@ public class Customer extends User {
         super(uid, firstName, lastName, email, role);
     }
 
-    public Customer(RegisterData registerData, String uid) {
-        super(registerData, uid);
+    public Customer(String id, RegisterData registerData) {
+        super(id, registerData);
     }
 
     public Customer(DocumentSnapshot userDocument) {

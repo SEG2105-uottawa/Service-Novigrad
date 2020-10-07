@@ -8,8 +8,15 @@ public class LoginData {
 
     String email, password;
     public LoginData(LoginActivity activity) {
+        // Constructor for getting input from the login activity
         this.email = this.getText(activity.emailInput);
         this.password = this.getText(activity.passwordInput);
+    }
+
+    public LoginData(String email, String password) {
+        // Constructor for test cases
+        this.email = email;
+        this.password = password;
     }
 
     public boolean isAdmin() {
@@ -31,7 +38,6 @@ public class LoginData {
     private String getText(TextInputLayout input) {
         try { return input.getEditText().getText().toString(); }
         catch (Exception e) {
-            System.out.println("bruh!!!");
             return null;
         }
     }
