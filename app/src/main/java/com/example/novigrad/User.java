@@ -1,15 +1,37 @@
 package com.example.novigrad;
 
+import com.google.firebase.firestore.DocumentSnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class User {
     private String firstName, lastName, email, role;
 
-    User(){
-        this.firstName = "";
-        this.lastName = "";
-        this.email = "";
-        this.role = "";
+    public User(RegisterData registerData) {
+        this.firstName = registerData.firstName;
+        this.lastName = registerData.lastName;
+        this.email = registerData.email;
+        this.role = registerData.role;
     }
-    User(String firstName, String lastName, String email, String role) {
+
+    public User(DocumentSnapshot userDocument) {
+        this.firstName = (String) userDocument.get("firstName");
+        this.lastName = (String) userDocument.get("lastName");
+        this.email = (String) userDocument.get("email");
+        this.role = (String) userDocument.get("role");
+    }
+
+    public Map<String, Object> toDocument() {
+        Map<String, Object> document = new HashMap<>();
+        document.put("firstName", this.firstName);
+        document.put("lastName", this.lastName);
+        document.put("email", this.email);
+        document.put("role", this.role);
+        return document;
+    }
+
+    public User(String firstName, String lastName, String email, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
