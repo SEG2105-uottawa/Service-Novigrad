@@ -1,19 +1,26 @@
 package com.example.novigrad;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    private final String id;
+    private final String id; // Firebase uid
     private String firstName, lastName, email, role;
 
-    public User(RegisterData registerData, String id) {
+    public User(String uid, String firstName, String lastName, String email, String role) {
         /* Create a user from registration data */
-        this.id = id;
+        this.id = uid;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.role = role;
+    }
+
+    public User(RegisterData registerData, String uid) {
+        /* Create a user from registration data */
+        this.id = uid;
         this.firstName = registerData.firstName;
         this.lastName = registerData.lastName;
         this.email = registerData.email;

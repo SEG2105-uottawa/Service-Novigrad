@@ -110,24 +110,24 @@ public class RegisterData {
         return (s != null) && (s.length() > 0);
     }
 
-    public boolean emailIsValid() {
+    private boolean emailIsValid() {
         /* Email is valid - XXXXX@XXX.XXX */
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    public boolean nameIsValid(String name) {
+    private boolean nameIsValid(String name) {
         /* Name is valid - letters only */
         Pattern allowedCharacters = Pattern.compile("[a-zA-z]+");
         Matcher nameAsMatcher = allowedCharacters.matcher(name);
         return nameAsMatcher.matches();
     }
 
-    public boolean passwordLengthIsValid() {
+    private boolean passwordLengthIsValid() {
         /* Check if the password is at least 6 characters */
         return password.length() > 5;
     }
 
-    public boolean passwordsMatchIsValid() {
+    private boolean passwordsMatchIsValid() {
         /* Check if the password match */
         return password.equals(confirmPassword);
     }
