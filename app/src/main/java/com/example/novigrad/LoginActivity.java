@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         System.out.println(login);
         if (login.isAdmin()) {
             // go to admin activity
-            Helper.snackbar(view, "Admin has logged in");
             Intent intent = new Intent(this, AdminActivity.class);
             startActivity(intent);
             return;
@@ -57,32 +56,9 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void startWelcomeActivity(AuthResult authResult, final View view, final Intent intent) {
-        String userId = authResult.getUser().getUid();
-        DocumentReference userRef = db.collection("users").document(userId);
-        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        System.out.println("User exists in firebase");
-                        String login = String.format("%s: %s %s (%s)", document.get("role"), document.get("firstName"), document.get("lastName"), document.get("email"));
-                        Helper.snackbar(view, login);
-                        intent.putExtra("role", (String) document.get("role"));
-                        intent.putExtra("firstName", (String) document.get("firstName"));
-                        intent.putExtra("lastName", (String) document.get("lastName"));
-                        intent.putExtra("email", (String) document.get("email"));
-                        startActivity(intent);
-                    } else {
-                        System.out.println("User does not exists in firebase");
-                    }
-                } else {
-                    System.out.println("Failed with " + task.getException().getMessage());
-                }
-            }
-        });
-
+    public void startWelcomeActivity() {
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        startActivity(intent);
     }
 
 

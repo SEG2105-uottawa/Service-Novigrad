@@ -24,9 +24,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
+    /* Registers a user */
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-
     TextInputLayout firstName;
     TextInputLayout lastName;
     TextInputLayout email;
@@ -38,10 +38,11 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        // Get firebase instances
         this.db = FirebaseFirestore.getInstance();
-
         this.mAuth = FirebaseAuth.getInstance();
+
+        // Get inputs
         this.firstName = findViewById(R.id.firstNameInput);
         this.lastName = findViewById(R.id.lastNameInput);
         this.email = findViewById(R.id.emailInput);
@@ -50,45 +51,55 @@ public class RegisterActivity extends AppCompatActivity {
         this.roleSelector = findViewById(R.id.accountRadioGroup);
     }
 
-    public void onRegister(final View view) {
-        RegisterData registerData = new RegisterData(this);
-        boolean isValid = registerData.isValid(view);
-        if (isValid) {
-            mAuth.createUserWithEmailAndPassword(this.email.getEditText().getText().toString(), this.password.getEditText().getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Helper.snackbar(view,"Register successful");
-                        addUser(task.getResult(), view);
-                        Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
-                        startActivity(intent);
-                    } else {
-                        Helper.snackbar(view, "Register failed: "+ task.getException().getMessage());
-                    }
-                }
-            });
+    public void onRegister(View view) {
+        /* Handle Register Click
+        * 1. create the user in firebase auth (also signs them in)
+        * 2. create user document in firebase firestore
+        * 3. send the user to the welcome activity
+        * */
+        final RegisterData registerData = new RegisterData(this);
+        if (registerData.isValid(view)) {
+            this.createUserAuth(registerData, view);
         }
     }
 
-    public void addUser(AuthResult authResult, final View view) {
-        RegisterData registerData = new RegisterData(this);
-        Map<String, String> userObj = new HashMap<>();
-        userObj.put("email", registerData.email);
-        userObj.put("firstName", registerData.firstName);
-        userObj.put("lastName", registerData.lastName);
-        userObj.put("role", registerData.roleSelected);
-        String userId = authResult.getUser().getUid();
-        DocumentReference userRef = db.collection("users").document(userId);
-        userRef.set(userObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+    public void createUserAuth(final RegisterData registerData, final View view) {
+        /* Create the user in Firebase Auth */
+        mAuth.createUserWithEmailAndPassword(registerData.email, registerData.password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
-            public void onSuccess(Void aVoid) {
-                System.out.println("Success!");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                System.out.println("Failure!");
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    AuthResult authResult = task.getResult();
+                    RegisterActivity.this.createUserDocument(registerData, authResult, view);
+                } else {
+                    Helper.snackbar(view, "Register failed: "+ task.getException().getMessage());
+                }
             }
         });
+    }
+
+    public void createUserDocument(RegisterData registerData, AuthResult authResult, final View view) {
+        /* Create the user in Firebase Fire store */
+        Map<String, Object> userDocument = new User(registerData).toDocument();
+
+        // Upload to firebase
+        String uid = authResult.getUser().getUid();
+        DocumentReference userRef = db.collection("users").document(uid);
+        userRef.set(userDocument).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    RegisterActivity.this.startWelcomeActivity();
+                } else {
+                    Helper.snackbar(view, "Register failed: "+ task.getException().getMessage());
+                }
+            }
+        });
+    }
+
+    public void startWelcomeActivity() {
+        /* Start the welcome activity */
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        startActivity(intent);
     }
 }

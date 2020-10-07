@@ -6,99 +6,129 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.rpc.Help;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterData {
-    /* Get and validate email and password
-    (validate here is just making sure the strings are not null it's not actually doing auth)*/
+    /* Get, store, and validate register data */
 
     String email, password, confirmPassword;
     String firstName, lastName;
-    String roleSelected;
+    String role;
+
     public RegisterData(RegisterActivity activity) {
         this.firstName = this.getText(activity.firstName);
         this.lastName = this.getText(activity.lastName);
         this.email = this.getText(activity.email);
         this.password = this.getText(activity.password);
         this.confirmPassword = this.getText(activity.confirmPassword);
-        this.roleSelected =  getRadioText(activity.roleSelector);
+        this.role =  getRadioText(activity.roleSelector);
     }
 
     public boolean isValid(View view) {
+        /* Validate all register data */
+
+        // First name validation
+        if (!stringIsValid(firstName)) {
+            Helper.snackbar(view, "Register Failed: irst Name is missing");
+            return false;
+        }
+
         if (!nameIsValid(firstName)) {
-            Helper.snackbar(view, "First Name invalid");
+            Helper.snackbar(view, "Register Failed: First Name contains illegal characters");
             return false;
-        } else if (!nameIsValid(lastName)) {
-            Helper.snackbar(view, "Last Name invalid");
+        }
+
+        // Last name validation
+        if (!stringIsValid(lastName)) {
+            Helper.snackbar(view, "Register Failed: Last Name is missing");
             return false;
-        } else if (!emailIsValid()) {
-            Helper.snackbar(view, "Email invalid");
+        }
+
+        if (!nameIsValid(lastName)) {
+            Helper.snackbar(view, "Register Failed: Last Name contains illegal characters");
             return false;
-        } else if (!passwordLengthIsValid()) {
-            Helper.snackbar(view, "Password must be longer than 5 characters");
+        }
+
+        // Email validation
+        if (!stringIsValid(email)) {
+            Helper.snackbar(view, "Register Failed: Email is missing");
             return false;
-        } else if (!passwordIsValid()) {
-            Helper.snackbar(view, "Passwords do not match");
+        }
+
+        if (!emailIsValid()) {
+            Helper.snackbar(view, "Register Failed: Email is invalid");
             return false;
-        } else if (!stringIsValid(this.roleSelected)) {
-            Helper.snackbar(view, "Select a role");
+        }
+
+        // Password validation
+        if (!stringIsValid(password)) {
+            Helper.snackbar(view, "Register Failed: Password is missing");
+            return false;
+        }
+
+        if (!passwordLengthIsValid()) {
+            Helper.snackbar(view, "Register Failed: Password must be at least 6 characters");
+            return false;
+        }
+
+        if (!passwordsMatchIsValid()) {
+            Helper.snackbar(view, "Register Failed: Passwords do not match");
+            return false;
+        }
+
+        // Role validation
+        else if (!stringIsValid(this.role)) {
+            Helper.snackbar(view, "Register Failed: Please select a role");
             return false;
         }
 
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Login{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-
     private String getText(TextInputLayout input) {
+        /* Get text from a TextInputLayout (Material Design) */
         try { return input.getEditText().getText().toString(); }
         catch (Exception e) {
-            System.out.println("bruh!!!");
             return null;
         }
     }
 
     private String getRadioText(RadioGroup input) {
+        /* Get the selected role - Either 'Customer' or 'Employee' */
         try {
             RadioButton selected = input.findViewById(input.getCheckedRadioButtonId());
             return selected.getText().toString();
         } catch (Exception e) {
-            System.out.println("RadioText bad");
             return null;
         }
     }
 
     private boolean stringIsValid(String s) {
-        return (s != null) && (s.length() > 5);
+       /* String is not null or empty */
+        return (s != null) && (s.length() > 0);
     }
 
     public boolean emailIsValid() {
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            return false;
-        }
-        return true;
+        /* Email is valid - XXXXX@XXX.XXX */
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     public boolean nameIsValid(String name) {
+        /* Name is valid - letters only */
         Pattern allowedCharacters = Pattern.compile("[a-zA-z]+");
         Matcher nameAsMatcher = allowedCharacters.matcher(name);
         return nameAsMatcher.matches();
     }
 
     public boolean passwordLengthIsValid() {
+        /* Check if the password is at least 6 characters */
         return password.length() > 5;
     }
 
-    public boolean passwordIsValid() {
+    public boolean passwordsMatchIsValid() {
+        /* Check if the password match */
         return password.equals(confirmPassword);
     }
 }

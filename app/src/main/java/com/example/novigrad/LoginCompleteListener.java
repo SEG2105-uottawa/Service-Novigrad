@@ -23,8 +23,7 @@ public class LoginCompleteListener implements OnCompleteListener<AuthResult> {
     public void onComplete(@NonNull Task<AuthResult> task) {
         if (task.isSuccessful()) {
             // Login successful
-            Intent intent = new Intent(this.activity, WelcomeActivity.class);
-            this.activity.startWelcomeActivity(task.getResult(), this.view, intent);
+            this.activity.startWelcomeActivity();
         } else {
             // Login failed
             Helper.snackbar(this.view, "Username or password is incorrect");
