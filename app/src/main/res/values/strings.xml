@@ -17,4 +17,5 @@
     <string name="customer_radio">Customer</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="welcome_msg">Welcome %1$s \nYou are a %2$s</string>
 </resources>

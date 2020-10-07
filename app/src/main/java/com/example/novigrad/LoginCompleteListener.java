@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
+
 public class LoginCompleteListener implements OnCompleteListener<AuthResult> {
     private LoginActivity activity;
     private View view;
@@ -23,11 +24,11 @@ public class LoginCompleteListener implements OnCompleteListener<AuthResult> {
         if (task.isSuccessful()) {
             // Login successful
             Intent intent = new Intent(this.activity, WelcomeActivity.class);
-            this.activity.startActivity(intent);
-            //this.activity.getUser(task.getResult(), this.view);
+            this.activity.startWelcomeActivity(task.getResult(), this.view, intent);
         } else {
             // Login failed
             Helper.snackbar(this.view, "Username or password is incorrect");
         }
     }
+
 }

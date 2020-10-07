@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Task<AuthResult> task = this.mAuth.signInWithEmailAndPassword(login.email, login.password);
         task.addOnCompleteListener(new LoginCompleteListener(this, view));
+
     }
 
     public void startRegisterActivity(View view) {
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void getUser(AuthResult authResult, final View view) {
+    public void startWelcomeActivity(AuthResult authResult, final View view, final Intent intent) {
         String userId = authResult.getUser().getUid();
         DocumentReference userRef = db.collection("users").document(userId);
         userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -68,7 +69,11 @@ public class LoginActivity extends AppCompatActivity {
                         System.out.println("User exists in firebase");
                         String login = String.format("%s: %s %s (%s)", document.get("role"), document.get("firstName"), document.get("lastName"), document.get("email"));
                         Helper.snackbar(view, login);
-                        System.out.println();
+                        intent.putExtra("role", (String) document.get("role"));
+                        intent.putExtra("firstName", (String) document.get("firstName"));
+                        intent.putExtra("lastName", (String) document.get("lastName"));
+                        intent.putExtra("email", (String) document.get("email"));
+                        startActivity(intent);
                     } else {
                         System.out.println("User does not exists in firebase");
                     }
@@ -77,5 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
+
+
 }
