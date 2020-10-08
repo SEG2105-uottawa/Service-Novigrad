@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void createUserAuth(final RegisterData registerData, final View view) {
         /* Create the user in Firebase Auth */
-        mAuth.createUserWithEmailAndPassword(registerData.email, registerData.password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(registerData.getEmail(), registerData.getPassword()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {

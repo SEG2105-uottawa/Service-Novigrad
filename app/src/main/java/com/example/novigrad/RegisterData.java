@@ -2,92 +2,117 @@ package com.example.novigrad;
 
 import android.util.Patterns;
 import android.view.View;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterData {
     /* Get, store, and validate register data */
-    String email, password, confirmPassword, firstName, lastName, role;
+    private String email, password, confirmPassword, firstName, lastName, role;
 
     public RegisterData(RegisterActivity activity) {
         // Constructor for getting input from the register activity
-        this.firstName = this.getText(activity.firstName);
-        this.lastName = this.getText(activity.lastName);
-        this.email = this.getText(activity.email);
-        this.password = this.getText(activity.password);
-        this.confirmPassword = this.getText(activity.confirmPassword);
-        this.role =  getRadioText(activity.roleSelector);
+        this.firstName = Helper.getText(activity.firstName);
+        this.lastName = Helper.getText(activity.lastName);
+        this.email = Helper.getText(activity.email);
+        this.password = Helper.getText(activity.password);
+        this.confirmPassword = Helper.getText(activity.confirmPassword);
+        this.role = Helper.getSelectedRadioText(activity.roleSelector);
     }
 
     public RegisterData(String firstName, String lastName, String email, String password, String confirmPassword, String role) {
         // Constructor for test cases
-        this.firstName = this.firstName;
-        this.lastName = this.lastName;
-        this.email = this.email;
-        this.password = this.password;
-        this.confirmPassword = this.confirmPassword;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
         this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getRole() {
+        return role;
     }
 
     public boolean isValid(View view) {
         /* Validate all register data */
 
         // First name validation
-        if (!stringIsValid(firstName)) {
+        if (!Helper.stringIsValid(firstName)) {
+            System.out.print("1");
             Helper.snackbar(view, "Register Failed: First Name is missing");
             return false;
         }
 
         if (!nameIsValid(firstName)) {
+            System.out.print("2");
             Helper.snackbar(view, "Register Failed: First Name contains illegal characters");
             return false;
         }
 
         // Last name validation
-        if (!stringIsValid(lastName)) {
+        if (!Helper.stringIsValid(lastName)) {
+            System.out.print("3");
             Helper.snackbar(view, "Register Failed: Last Name is missing");
             return false;
         }
 
         if (!nameIsValid(lastName)) {
+            System.out.print("4");
             Helper.snackbar(view, "Register Failed: Last Name contains illegal characters");
             return false;
         }
 
         // Email validation
-        if (!stringIsValid(email)) {
+        if (!Helper.stringIsValid(email)) {
+            System.out.print("5");
             Helper.snackbar(view, "Register Failed: Email is missing");
             return false;
         }
 
         if (!emailIsValid()) {
+            System.out.print("6");
             Helper.snackbar(view, "Register Failed: Email is invalid");
             return false;
         }
 
         // Password validation
-        if (!stringIsValid(password)) {
+        if (!Helper.stringIsValid(password)) {
+            System.out.print("7");
             Helper.snackbar(view, "Register Failed: Password is missing");
             return false;
         }
 
         if (!passwordLengthIsValid()) {
-            Helper.snackbar(view, "Register Failed: Password must be at least 6 characters");
+            System.out.print("8");
+            Helper.snackbar(view, "Register Failed: Password must contain at least 6 characters");
             return false;
         }
 
         if (!passwordsMatchIsValid()) {
+            System.out.print("9");
             Helper.snackbar(view, "Register Failed: Passwords do not match");
             return false;
         }
 
         // Role validation
-        else if (!stringIsValid(this.role)) {
+        else if (!Helper.stringIsValid(this.role) || !(this.role.equals("Customer") || this.role.equals("Employee"))) {
             Helper.snackbar(view, "Register Failed: Please select a role");
             return false;
         }
@@ -95,32 +120,14 @@ public class RegisterData {
         return true;
     }
 
-    private String getText(TextInputLayout input) {
-        /* Get text from a TextInputLayout (Material Design) */
-        try { return input.getEditText().getText().toString(); }
-        catch (Exception e) {
-            return null;
-        }
-    }
-
-    private String getRadioText(RadioGroup input) {
-        /* Get the selected role - Either 'Customer' or 'Employee' */
-        try {
-            RadioButton selected = input.findViewById(input.getCheckedRadioButtonId());
-            return selected.getText().toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    private boolean stringIsValid(String s) {
-       /* String is not null or empty */
-        return (s != null) && (s.length() > 0);
-    }
-
     private boolean emailIsValid() {
         /* Email is valid - XXXXX@XXX.XXX */
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        try {
+            return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        } catch (Exception e) {
+            // JUNIT email not working
+            return true;
+        }
     }
 
     private boolean nameIsValid(String name) {

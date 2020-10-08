@@ -21,10 +21,10 @@ public class User {
     public User(String id, RegisterData registerData) {
         /* Create a user from registration data */
         this.id = id;
-        this.firstName = registerData.firstName;
-        this.lastName = registerData.lastName;
-        this.email = registerData.email;
-        this.role = registerData.role;
+        this.firstName = registerData.getFirstName();
+        this.lastName = registerData.getLastName();
+        this.email = registerData.getEmail();
+        this.role = registerData.getRole();
     }
 
     public User(DocumentSnapshot userDocument) {
