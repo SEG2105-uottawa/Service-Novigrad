@@ -12,18 +12,26 @@ import java.util.regex.Pattern;
 
 public class RegisterData {
     /* Get, store, and validate register data */
-
-    String email, password, confirmPassword;
-    String firstName, lastName;
-    String role;
+    String email, password, confirmPassword, firstName, lastName, role;
 
     public RegisterData(RegisterActivity activity) {
+        // Constructor for getting input from the register activity
         this.firstName = this.getText(activity.firstName);
         this.lastName = this.getText(activity.lastName);
         this.email = this.getText(activity.email);
         this.password = this.getText(activity.password);
         this.confirmPassword = this.getText(activity.confirmPassword);
         this.role =  getRadioText(activity.roleSelector);
+    }
+
+    public RegisterData(String firstName, String lastName, String email, String password, String confirmPassword, String role) {
+        // Constructor for test cases
+        this.firstName = this.firstName;
+        this.lastName = this.lastName;
+        this.email = this.email;
+        this.password = this.password;
+        this.confirmPassword = this.confirmPassword;
+        this.role = role;
     }
 
     public boolean isValid(View view) {

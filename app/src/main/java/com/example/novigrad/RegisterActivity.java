@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void createUserDocument(RegisterData registerData, AuthResult authResult, final View view) {
         /* Create the user in Firebase Fire store */
         String uid = authResult.getUser().getUid();
-        User user = new User(registerData, uid);
+        User user = new User(uid, registerData);
 
         // Upload to firebase
         DocumentReference userRef = db.collection("users").document(user.getId());

@@ -9,18 +9,18 @@ public class User {
     private final String id; // Firebase uid
     private String firstName, lastName, email, role;
 
-    public User(String uid, String firstName, String lastName, String email, String role) {
+    public User(String id, String firstName, String lastName, String email, String role) {
         /* Create a user from registration data */
-        this.id = uid;
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;
     }
 
-    public User(RegisterData registerData, String uid) {
+    public User(String id, RegisterData registerData) {
         /* Create a user from registration data */
-        this.id = uid;
+        this.id = id;
         this.firstName = registerData.firstName;
         this.lastName = registerData.lastName;
         this.email = registerData.email;
