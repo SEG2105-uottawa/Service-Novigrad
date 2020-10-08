@@ -55,58 +55,49 @@ public class RegisterData {
 
         // First name validation
         if (!Helper.stringIsValid(firstName)) {
-            System.out.print("1");
             Helper.snackbar(view, "Register Failed: First Name is missing");
             return false;
         }
 
         if (!nameIsValid(firstName)) {
-            System.out.print("2");
             Helper.snackbar(view, "Register Failed: First Name contains illegal characters");
             return false;
         }
 
         // Last name validation
         if (!Helper.stringIsValid(lastName)) {
-            System.out.print("3");
             Helper.snackbar(view, "Register Failed: Last Name is missing");
             return false;
         }
 
         if (!nameIsValid(lastName)) {
-            System.out.print("4");
             Helper.snackbar(view, "Register Failed: Last Name contains illegal characters");
             return false;
         }
 
         // Email validation
         if (!Helper.stringIsValid(email)) {
-            System.out.print("5");
             Helper.snackbar(view, "Register Failed: Email is missing");
             return false;
         }
 
         if (!emailIsValid()) {
-            System.out.print("6");
             Helper.snackbar(view, "Register Failed: Email is invalid");
             return false;
         }
 
         // Password validation
         if (!Helper.stringIsValid(password)) {
-            System.out.print("7");
             Helper.snackbar(view, "Register Failed: Password is missing");
             return false;
         }
 
         if (!passwordLengthIsValid()) {
-            System.out.print("8");
             Helper.snackbar(view, "Register Failed: Password must contain at least 6 characters");
             return false;
         }
 
         if (!passwordsMatchIsValid()) {
-            System.out.print("9");
             Helper.snackbar(view, "Register Failed: Passwords do not match");
             return false;
         }
