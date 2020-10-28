@@ -24,6 +24,6 @@ public class LoginData {
         return ("admin".equals(this.email)) && ("admin".equals(this.password));
     }
     public boolean isValid() {
-        return (email != null) && (password != null);
+        return (email != null) && (password != null) && !("".equals(email)) && !("".equals(password));
     }
 }
