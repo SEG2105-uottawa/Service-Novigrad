@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.example.novigrad.R;
@@ -26,6 +27,7 @@ public class AdminActivity extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            // Get all users
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 QuerySnapshot result = task.getResult();
@@ -35,16 +37,18 @@ public class AdminActivity extends AppCompatActivity {
                     for (DocumentSnapshot document: documents) {
                         users.add(new User(document));
                     }
-                    createUserManager(users, R.id.userManagerRecyclerView);
+                    createUserManager(users, R.id.userManagerRecyclerView, getApplicationContext());
                 }
             }
         });
     }
 
-    private UserManagerAdapter createUserManager(ArrayList<User> users, int recyclerId) {
+    private UserManagerAdapter createUserManager(ArrayList<User> users, int recyclerId, Context context) {
+        /* Create a user manager adapter*/
         RecyclerView usersRecycler = findViewById(recyclerId);
-        UserManagerAdapter adapter = new UserManagerAdapter(this, users);
+        UserManagerAdapter adapter = new UserManagerAdapter(context, users);
         usersRecycler.setAdapter(adapter);
-        usersRecycler.setLayoutManager(new LinearLayoutManager(this));
+        usersRecycler.setLayoutManager(new LinearLayoutManager(context));
+        return adapter;
     }
 }
