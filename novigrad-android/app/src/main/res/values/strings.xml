@@ -25,6 +25,7 @@
     <string name="manage_user">Users</string>
 
     <string name="manage_services">Services</string>
+    <string name="add_service_button">Add Service</string>
     <string name="service_editor">Service Editor</string>
     <string name="service_name">Service Name</string>
     <string name="service_price">Service Price</string>
@@ -33,4 +34,6 @@
     <string name="health_card">Health Card</string>
     <string name="photo_id">Photo ID</string>
     <string name="save_service_button">Save Service</string>
+
+    <string name="alphabetical">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 </resources>

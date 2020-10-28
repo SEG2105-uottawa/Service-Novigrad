@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.example.novigrad.Helper;
 import com.example.novigrad.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,10 +41,14 @@ public class ServiceEditorActivity extends AppCompatActivity {
         photoID = findViewById(R.id.PhotoIDCheckbox);
     }
 
-    public void saveService(View view) {
+    public void saveService(final View view) {
+        if (!canSave(view)) {
+            return;
+        }
+
         Map<String, Object> data = new HashMap<>();
         data.put("name", serviceName.getEditText().getText().toString());
-        data.put("price", Integer.parseInt(servicePrice.getEditText().getText().toString()));
+        data.put("price", Double.parseDouble(servicePrice.getEditText().getText().toString()));
         data.put("driversLicense", driversLicense.isChecked());
         data.put("healthCard", healthCard.isChecked());
         data.put("photoID", photoID.isChecked());
@@ -52,13 +57,29 @@ public class ServiceEditorActivity extends AppCompatActivity {
         db.collection("available_services").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                System.out.println("Successfully added service");
+                Helper.snackbar(view, "Service successfully added.");
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                System.out.println("Error adding service " + e);
+                Helper.snackbar(view, "Service failed to add. Try again later.");
             }
         });
+    }
+
+    private boolean canSave(final View view) {
+        if (serviceName.getEditText().getText().toString().length() <= 0) {
+            Helper.snackbar(view, "Name is required");
+            return false;
+        } else if (servicePrice.getEditText().getText().toString().length() <= 0) {
+            Helper.snackbar(view, "Price is required");
+            return false;
+        } else if (!(driversLicense.isChecked() || healthCard.isChecked() || photoID.isChecked())) {
+            Helper.snackbar(view, "At least one document is required");
+            return false;
+        }
+
+        return true;
     }
 }
