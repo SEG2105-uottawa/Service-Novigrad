@@ -7,16 +7,23 @@
     tools:context=".admin.AdminActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Manage Users"
-        android:textAppearance="?attr/textAppearanceHeadline4"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="15dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/userManagerRecyclerView"/>
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white">
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </com.google.android.material.tabs.TabLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

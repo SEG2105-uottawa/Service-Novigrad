@@ -9,19 +9,12 @@ import android.view.View;
 import android.widget.RadioGroup;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     /* Registers a user */
@@ -41,8 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
         // Get inputs
         this.firstName = findViewById(R.id.firstNameInput);
         this.lastName = findViewById(R.id.lastNameInput);
-        this.email = findViewById(R.id.emailInput);
-        this.password = findViewById(R.id.passwordInput);
+        this.email = findViewById(R.id.ServiceNameInput);
+        this.password = findViewById(R.id.ServicePriceInput);
         this.confirmPassword = findViewById(R.id.confirmPasswordInput);
         this.roleSelector = findViewById(R.id.accountRadioGroup);
     }

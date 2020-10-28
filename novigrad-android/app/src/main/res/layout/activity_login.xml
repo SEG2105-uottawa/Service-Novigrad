@@ -17,7 +17,7 @@
         android:textAppearance="?attr/textAppearanceHeadline3" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailInput"
+        android:id="@+id/ServiceNameInput"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,11 +32,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordInput"
+        android:id="@+id/ServicePriceInput"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/emailInput"
+        android:layout_below="@+id/ServiceNameInput"
         android:layout_marginBottom="20dp"
         android:hint="@string/prompt_password">
 
@@ -52,7 +52,7 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordInput"
+        android:layout_below="@+id/ServicePriceInput"
         android:layout_marginBottom="10dp"
         android:onClick="onLogin"
         android:text="@string/login" />

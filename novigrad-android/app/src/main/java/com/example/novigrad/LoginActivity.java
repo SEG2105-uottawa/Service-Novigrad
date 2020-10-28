@@ -25,8 +25,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         this.mAuth = FirebaseAuth.getInstance();
         this.db = FirebaseFirestore.getInstance();
-        this.emailInput = findViewById(R.id.emailInput);
-        this.passwordInput = findViewById(R.id.passwordInput);
+        this.emailInput = findViewById(R.id.ServiceNameInput);
+        this.passwordInput = findViewById(R.id.ServicePriceInput);
     }
 
     public void onLogin(final View view) {

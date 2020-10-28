@@ -1,9 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.ServiceEditorActivity">
+    tools:context=".admin.ServiceEditorActivity"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="15sp"
+        android:text="@string/service_editor"
+        android:textAppearance="?attr/textAppearanceHeadline4" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ServiceNameInput"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/service_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ServicePriceInput"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/service_price"
+        app:prefixText="$ ">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/RequiredDocumentsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/required_documents"
+        android:textSize="25sp"
+        android:textStyle="normal" />
+
+    <CheckBox
+        android:id="@+id/DriversLicenseCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/drivers_license" />
+
+    <CheckBox
+        android:id="@+id/HealthCardCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/health_card" />
+
+    <CheckBox
+        android:id="@+id/PhotoIDCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/photo_id" />
+
+    <Button
+        android:id="@+id/SaveServiceButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="saveService"
+        android:text="@string/save_service_button" />
+
+</LinearLayout>

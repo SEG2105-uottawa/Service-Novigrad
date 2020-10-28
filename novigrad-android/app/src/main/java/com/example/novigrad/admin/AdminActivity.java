@@ -1,54 +1,87 @@
 package com.example.novigrad.admin;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
-import android.content.Context;
+import androidx.viewpager.widget.ViewPager;
+
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.novigrad.R;
-import com.example.novigrad.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdminActivity extends AppCompatActivity {
+    private Toolbar toolbar;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
+
+    private ManageUsers manageUsers;
+    private ManageServices manageServices;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         setContentView(R.layout.activity_admin);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            // Get all users
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                QuerySnapshot result = task.getResult();
-                if (task.isSuccessful() && result != null) {
-                    List<DocumentSnapshot> documents = result.getDocuments();
-                    ArrayList<User> users = new ArrayList<>();
-                    for (DocumentSnapshot document: documents) {
-                        users.add(new User(document));
-                    }
-                    createUserManager(users, R.id.userManagerRecyclerView, getApplicationContext());
-                }
-            }
-        });
+        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tab_layout);
+
+        manageUsers = new ManageUsers();
+        manageServices = new ManageServices();
+
+        tabLayout.setupWithViewPager(viewPager);
+
+        ViewPagerAdapter viewpagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
+        viewpagerAdapter.addFragment(manageUsers, "Users");
+        viewpagerAdapter.addFragment(manageServices, "Services");
+        viewPager.setAdapter(viewpagerAdapter);
     }
 
-    private UserManagerAdapter createUserManager(ArrayList<User> users, int recyclerId, Context context) {
-        /* Create a user manager adapter*/
-        RecyclerView usersRecycler = findViewById(recyclerId);
-        UserManagerAdapter adapter = new UserManagerAdapter(context, users);
-        usersRecycler.setAdapter(adapter);
-        usersRecycler.setLayoutManager(new LinearLayoutManager(context));
-        return adapter;
+    private class ViewPagerAdapter extends FragmentPagerAdapter {
+
+        private List<Fragment> fragments = new ArrayList<>();
+        private List<String > fragmentTitle = new ArrayList<>();
+
+        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+            super(fm, behavior);
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            fragments.add(fragment);
+            fragmentTitle.add(title);
+        }
+
+        @NonNull
+        @Override
+        public Fragment getItem(int position) {
+            return fragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.size();
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return fragmentTitle.get(position);
+        }
     }
 }
