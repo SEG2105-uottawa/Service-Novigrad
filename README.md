@@ -13,3 +13,5 @@ Garvin Hui 300114525
 - Firebase cloudstore 21.7.0
 - Firebase auth 19.4.0
 - Material design 1.2.1
+- Recycler view 1.1.0
+- Volley 1.1.1
