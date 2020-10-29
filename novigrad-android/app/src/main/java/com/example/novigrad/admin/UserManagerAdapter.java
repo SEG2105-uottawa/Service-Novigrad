@@ -85,7 +85,7 @@ public class UserManagerAdapter extends RecyclerView.Adapter<UserManagerAdapter.
     @Override
     public UserManagerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         /* Recycler view method */
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_manage_user, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_manage_user_card, parent, false);
         return new ViewHolder(view);
     }
 

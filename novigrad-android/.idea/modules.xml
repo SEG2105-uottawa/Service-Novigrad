@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Novigrad.iml" filepath="$PROJECT_DIR$/.idea/modules/Novigrad.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Novigrad.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Novigrad.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/novigrad-android.Novigrad.iml" filepath="$PROJECT_DIR$/.idea/modules/novigrad-android.Novigrad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/novigrad-android.Novigrad.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/novigrad-android.Novigrad.app.iml" />
     </modules>
   </component>
 </project>

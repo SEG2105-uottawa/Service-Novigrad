@@ -29,7 +29,7 @@
     <string name="service_editor">Service Editor</string>
     <string name="service_name">Service Name</string>
     <string name="service_price">Service Price</string>
-    <string name="required_documents">Required Documents</string>
+    <string name="required_documents">Required Documents:</string>
     <string name="drivers_license">Driver\'s License</string>
     <string name="health_card">Health Card</string>
     <string name="photo_id">Photo ID</string>

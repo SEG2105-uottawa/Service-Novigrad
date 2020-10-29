@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.ManageUsers"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
         android:text="Manage Services"
         android:textAppearance="?attr/textAppearanceHeadline4" />
 
@@ -18,11 +26,12 @@
         android:id="@+id/addServiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:text="@string/add_service_button" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ServiceManagerRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
