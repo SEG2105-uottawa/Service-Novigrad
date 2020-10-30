@@ -35,7 +35,7 @@ public class ServiceEditorActivity extends AppCompatActivity {
     CheckBox driversLicense;
     CheckBox healthCard;
     CheckBox photoID;
-
+    FirebaseFirestore db;
     Service service;
 
     @Override
@@ -49,10 +49,9 @@ public class ServiceEditorActivity extends AppCompatActivity {
         driversLicense = findViewById(R.id.DriversLicenseCheckbox);
         healthCard = findViewById(R.id.HealthCardCheckbox);
         photoID = findViewById(R.id.PhotoIDCheckbox);
-
+        db = FirebaseFirestore.getInstance();
         // if a service is being edited, get the entry from firestore with the id stored in the intent
         if (getIntent().getExtras() != null) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
             DocumentReference servRef = db.collection(Service.COLLECTION).document(getIntent().getStringExtra("id"));
             servRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
@@ -87,7 +86,7 @@ public class ServiceEditorActivity extends AppCompatActivity {
 
 
         if (service == null) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
             db.collection("available_services").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
@@ -107,7 +106,7 @@ public class ServiceEditorActivity extends AppCompatActivity {
             service.setHealthCardRequired((boolean)data.get("healthCard"));
             service.setPhotoIDRequired((boolean)data.get("photoID"));
 
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
             db.collection(Service.COLLECTION).document(service.getId()).set(data)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
