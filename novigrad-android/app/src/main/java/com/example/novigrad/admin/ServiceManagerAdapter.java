@@ -1,7 +1,9 @@
 package com.example.novigrad.admin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
 
 import com.example.novigrad.Helper;
 import com.example.novigrad.R;
@@ -32,7 +35,7 @@ public class ServiceManagerAdapter extends RecyclerView.Adapter<ServiceManagerAd
         private TextView serviceName;
         private TextView servicePrice;
         private TextView serviceRequiredDocuments;
-        private Button serviceDelete;
+        private Button serviceDelete, serviceEdit;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -40,14 +43,15 @@ public class ServiceManagerAdapter extends RecyclerView.Adapter<ServiceManagerAd
             servicePrice = itemView.findViewById(R.id.servicePriceTextView);
             serviceRequiredDocuments = itemView.findViewById(R.id.serviceRequiredDocumentsTextView);
             serviceDelete = itemView.findViewById(R.id.serviceDeleteButton);
+            serviceEdit = itemView.findViewById(R.id.serviceEditButton);
         }
 
-        public void bind(Service service, final int position, final ServiceManagerAdapter adapter) {
+        public void bind(final Service service, final int position, final ServiceManagerAdapter adapter) {
             /* Add data and delete listener to admin_manage_user.xml template  */
             final String id = service.getId();
             final String name = service.getName();
             serviceName.setText(service.getName());
-            servicePrice.setText("$"+Double.toString(service.getPrice()));
+            servicePrice.setText(String.format("$ %.2f", service.getPrice()));
             serviceRequiredDocuments.setText(service.getRequiredDocumentsString());
             serviceDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -63,6 +67,15 @@ public class ServiceManagerAdapter extends RecyclerView.Adapter<ServiceManagerAd
                     });
                 }
             });
+            serviceEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View v) {
+                    Intent intent = new Intent(v.getContext(), ServiceEditorActivity.class);
+                    intent.putExtra("id", service.getId());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
         }
 
     }
