@@ -5,9 +5,9 @@ orbs:
 
 jobs:
   build:
-    
+    working_directory: ~/project/novigrad-android
     executor: android/android
-    working_directory: ~/novigrad-android
+
     steps:
       - checkout
       - run:
