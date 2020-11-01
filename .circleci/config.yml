@@ -5,10 +5,11 @@ orbs:
 
 jobs:
   build:
+    
     executor: android/android
-
+    working_directory: ~/novigrad-android
     steps:
       - checkout
       - run:
-          command: ./novigrad-android/gradlew build
+          command: ./gradlew build
 
