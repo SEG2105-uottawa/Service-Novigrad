@@ -1,4 +1,5 @@
 # Project Group 69
+[![SEG2105-uottawa](https://circleci.com/gh/SEG2105-uottawa/seg2105f20-project-project_gr_69.svg?style=svg)](https://app.circleci.com/pipelines/github/SEG2105-uottawa/seg2105f20 project-project_gr_69)
 
 [https://github.com/SEG2105-uottawa/seg2105f20-project-project_gr_69](https://github.com/SEG2105-uottawa/seg2105f20-project-project_gr_69)
 
