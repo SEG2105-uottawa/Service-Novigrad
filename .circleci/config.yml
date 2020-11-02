@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: Download Dependencies
-          command: ./gradlew androidDependencies
+          command: cd novigrad-android;./gradlew androidDependencies
 
       - save_cache:
           paths:
@@ -40,5 +40,5 @@ jobs:
       # run tests!
       - run:
           name: Run Tests
-          command: ./gradlew lint test
+          command: cd novigrad-android;./gradlew lint test
 
