@@ -27,6 +27,10 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          
+      - run:
+          name: Change gradlew permissions
+          command: cd novigrad-android; chmond +x ./gradlew
 
       - run:
           name: Download Dependencies
