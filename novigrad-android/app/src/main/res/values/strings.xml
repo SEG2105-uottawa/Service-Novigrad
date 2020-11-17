@@ -37,7 +37,15 @@
     <string name="save_service_button">Save Service</string>
 
     <string name="edit_profile">Edit Profile</string>
+    <string name="edit_phone">Edit Phone number</string>
     <string name="edit_offered_services">Edit Offered Services</string>
+    <string name="edit_address">Edit Address</string>
+    <string name="street_number">Street #</string>
+    <string name="street_name">Street Name</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="city">City</string>
+    <string name="phone">Phone Number</string>
+    <string name="save_profile">Save Profile</string>
 
     <string name="alphabetical">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 </resources>
