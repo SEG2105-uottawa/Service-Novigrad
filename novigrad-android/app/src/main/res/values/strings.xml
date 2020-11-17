@@ -20,6 +20,7 @@
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="loading">Loading</string>
+    <string name="start">Start</string>
     <string name="error_loading_document">Error: could not load the requested document</string>
     <string name="welcome_msg">Welcome %1$s! \nYou are logged in as %2$s</string>
     <string name="manage_user">Users</string>
@@ -34,6 +35,9 @@
     <string name="health_card">Health Card</string>
     <string name="photo_id">Photo ID</string>
     <string name="save_service_button">Save Service</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="edit_offered_services">Edit Offered Services</string>
 
     <string name="alphabetical">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 </resources>
