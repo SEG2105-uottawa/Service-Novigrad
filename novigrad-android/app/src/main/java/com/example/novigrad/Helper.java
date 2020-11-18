@@ -1,6 +1,7 @@
 package com.example.novigrad;
 
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -16,6 +17,13 @@ public abstract class Helper {
 
     public static String getText(TextInputLayout input) {
         try { return input.getEditText().getText().toString(); }
+        catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String getText(EditText input) {
+        try { return input.getText().toString(); }
         catch (Exception e) {
             return null;
         }
