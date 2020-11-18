@@ -43,9 +43,13 @@
     <string name="street_number">Street #</string>
     <string name="street_name">Street Name</string>
     <string name="postal_code">Postal Code</string>
-    <string name="city">City</string>
+    <string name="municipality">Municipality</string>
     <string name="phone">Phone Number</string>
     <string name="save_profile">Save Profile</string>
 
+    <string name="profile_save_success">Successfully saved profile...</string>
+    <string name="profile_save_failed">Failed to save profile. Try again.</string>
+
     <string name="alphabetical">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="alphanumeric">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890</string>
 </resources>

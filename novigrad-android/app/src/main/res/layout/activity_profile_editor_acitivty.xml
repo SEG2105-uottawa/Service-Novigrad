@@ -50,18 +50,19 @@
             android:id="@+id/postalEditText"
             android:layout_width="107dp"
             android:layout_height="wrap_content"
-            android:digits="@string/alphabetical"
+            android:digits="@string/alphanumeric"
             android:ems="10"
             android:hint="@string/postal_code"
-            android:inputType="text" />
+            android:maxLength="6"
+            android:inputType="textCapCharacters" />
 
         <EditText
-            android:id="@+id/cityEditText"
+            android:id="@+id/municipalityEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="@string/city"
+            android:hint="@string/municipality"
             android:inputType="text" />
     </LinearLayout>
 
@@ -69,12 +70,12 @@
         android:id="@+id/editPhoneTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:text="@string/edit_phone"
         android:textSize="36sp" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/phoneEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -88,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:onClick="onSaveProfile"
         android:text="@string/save_profile" />
 
 </LinearLayout>
