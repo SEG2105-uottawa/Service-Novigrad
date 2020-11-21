@@ -1,6 +1,7 @@
 package com.example.novigrad;
 
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Exclude;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 public class User {
     private final String id; // Firebase uid
     private String firstName, lastName, email, role;
+    private static final String COLLECTION = "users";
 
     public User(String id, String firstName, String lastName, String email, String role) {
         /* Create a user from registration data */
@@ -36,6 +38,8 @@ public class User {
         this.role = (String) userDocument.get("role");
     }
 
+    public User() {id="";}
+
     public Map<String, Object> toDocument() {
         /* Convert the user instance to a map which can be uploaded to firestore */
         Map<String, Object> document = new HashMap<>();
@@ -46,6 +50,7 @@ public class User {
         return document;
     }
 
+    @Exclude
     public String getId() {
         return id;
     }

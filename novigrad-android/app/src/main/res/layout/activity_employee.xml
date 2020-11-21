@@ -18,11 +18,12 @@
         android:text="@string/edit_profile" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnEditServices"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="20dp"
-        android:text="@string/edit_offered_services" />
+            android:id="@+id/btnEditServices"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="@string/edit_offered_services"
+            android:onClick="onServiceManager" />
 </LinearLayout>

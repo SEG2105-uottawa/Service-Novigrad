@@ -14,7 +14,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class ProfileEditorAcitivty extends AppCompatActivity {
+public class ProfileEditorActivity extends AppCompatActivity {
 
     EditText streetNumber, streetName, postalCode, municipality, phone;
     FirebaseAuth mAuth;
@@ -23,7 +23,7 @@ public class ProfileEditorAcitivty extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_editor_acitivty);
+        setContentView(R.layout.activity_profile_editor_activity);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();

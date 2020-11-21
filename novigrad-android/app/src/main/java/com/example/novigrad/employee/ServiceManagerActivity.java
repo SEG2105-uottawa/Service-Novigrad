@@ -1,4 +1,4 @@
-package com.example.novigrad.admin;
+package com.example.novigrad.employee;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,56 +7,46 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-
 import androidx.viewpager.widget.ViewPager;
 
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
 import com.example.novigrad.R;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminActivity extends AppCompatActivity {
+public class ServiceManagerActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
-    private ManageUsers manageUsers;
-    private ManageServices manageServices;
-
+    private ManageServiceRequests manageServices;
+    private SelectServices selectServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        toolbar = findViewById(R.id.servBar);
+        toolbar = findViewById(R.id.serviceToolBar);
         setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_service_manager);
 
-        setContentView(R.layout.activity_admin);
-
-        viewPager = findViewById(R.id.view_pager);
-        tabLayout = findViewById(R.id.tab_layout);
-
-        manageUsers = new ManageUsers();
-        manageServices = new ManageServices();
+        viewPager = findViewById(R.id.serviceViewPager);
+        tabLayout = findViewById(R.id.serviceTabs);
+        selectServices = new SelectServices();
+        manageServices = new ManageServiceRequests();
 
         tabLayout.setupWithViewPager(viewPager);
-
         ViewPagerAdapter viewpagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
-        viewpagerAdapter.addFragment(manageUsers, "Users");
-        viewpagerAdapter.addFragment(manageServices, "Services");
+        viewpagerAdapter.addFragment(selectServices, "Select Services");
+        viewpagerAdapter.addFragment(manageServices, "Manage Requests");
         viewPager.setAdapter(viewpagerAdapter);
     }
 
     private class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private List<Fragment> fragments = new ArrayList<>();
-        private List<String > fragmentTitle = new ArrayList<>();
+        private List<String> fragmentTitle = new ArrayList<>();
 
         public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
             super(fm, behavior);

@@ -8,7 +8,7 @@ public class ProfileData {
 
     private String streetNumber, streetName, postalCode, municipality, phone;
 
-    public ProfileData(ProfileEditorAcitivty activity) {
+    public ProfileData(ProfileEditorActivity activity) {
         this.streetNumber = Helper.getText(activity.streetNumber);
         this.streetName = Helper.getText(activity.streetName);
         this.postalCode = Helper.getText(activity.postalCode);

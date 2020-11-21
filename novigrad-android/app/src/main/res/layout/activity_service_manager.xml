@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/servBar"
+
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/serviceToolBar"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="#FFFFFF">
+
+            <com.google.android.material.tabs.TabLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/serviceTabs" />
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/serviceViewPager" />
+
+</LinearLayout>

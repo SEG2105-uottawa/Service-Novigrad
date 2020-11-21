@@ -77,7 +77,7 @@ public class ManageServices extends Fragment {
     }
 
     private void update() {
-        db.collection("available_services").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection(Service.COLLECTION).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 QuerySnapshot result = task.getResult();

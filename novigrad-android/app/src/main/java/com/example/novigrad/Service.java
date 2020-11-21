@@ -1,7 +1,9 @@
 package com.example.novigrad;
 
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Exclude;
 
+import java.util.ArrayList;
 import java.util.StringJoiner;
 
 public class Service {
@@ -37,6 +39,8 @@ public class Service {
         this.photoIDRequired = (boolean) userDocument.get(PHOTO_ID_KEY);
     }
 
+    public Service(){}
+
     public String getName() {
         return name;
     }
@@ -45,6 +49,7 @@ public class Service {
         this.name = name;
     }
 
+    @Exclude
     public String getId() {
         return id;
     }

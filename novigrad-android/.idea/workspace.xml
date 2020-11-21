@@ -31,21 +31,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2144d992-c628-407d-b605-ced338b57c17" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/admin/AdminActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/admin/AdminActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/admin/ManageServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/admin/ManageServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/EmployeeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/EmployeeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileEditorAcitivty.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileEditorAcitivty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileEditorAcitivty.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileEditorActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_admin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_employee.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_employee.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_editor_acitivty.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_editor_acitivty.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_editor_acitivty.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_editor_activity.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3_XL_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_25]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -67,9 +76,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="layoutResourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -77,17 +86,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1iYcPPAEZ6MbVgtV5GefvojSxYb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DEBUGGABLE_DEVICE" value="emulator-5554" />
+    <property name="DEBUGGABLE_PROCESS" value="com.example.novigrad" />
+    <property name="DEBUGGER_ID" value="Auto" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_API_29" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-29T01:19:24.012Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
@@ -97,6 +112,9 @@
   <component name="RecentsManager">
     <key name="android.template.-237804778">
       <recent name="com.example.novigrad.admin" />
+    </key>
+    <key name="android.template.1122146272">
+      <recent name="com.example.novigrad.employee" />
     </key>
     <key name="android.template.-1800996488">
       <recent name="com.example.novigrad.employee" />
@@ -108,7 +126,7 @@
       <recent name="C:\Users\danie\Desktop\seg2105f20-project-project_gr_69" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.LoginActivity">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="LoginDataUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="Novigrad.app" />
       <extension name="coverage">
@@ -141,11 +159,11 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterDataUnitTest (2)" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterDataUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="Novigrad.app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.novigrad.*" />
+          <option name="PATTERN" value="com.example.novigrad.admin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -161,7 +179,7 @@
       <module name="Novigrad.app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.novigrad.admin.*" />
+          <option name="PATTERN" value="com.example.novigrad.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -487,7 +505,6 @@
         <item itemvalue="Android App.WelcomeActivity" />
         <item itemvalue="Android App.AdminActivity" />
         <item itemvalue="Android JUnit.LoginDataUnitTest" />
-        <item itemvalue="Android JUnit.RegisterDataUnitTest (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -525,9 +542,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="477" y="266" key="#PSD" timestamp="1603939858247">
+    <state x="477" y="266" key="#PSD" timestamp="1605749718834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="477" y="266" key="#PSD/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605749718834" />
     <state x="477" y="266" key="#PSD/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603939858247" />
     <state x="497" y="159" key="#Updates" timestamp="1603986166225">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -537,9 +555,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1602087951772" />
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1605734889630">
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1605913909828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605913909828" />
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603920288070" />
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605734889630" />
     <state x="-1744" y="56" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602118993756" />
@@ -548,69 +567,92 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="236" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603986172972" />
-    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1603914058964">
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605851042185">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605851042185" />
     <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603914058964" />
     <state x="522" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605734745377">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="522" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605734745377" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605734791889">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605764045372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605764045372" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603909931864" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605734791889" />
     <state x="614" y="86" key="#novigrad-android.Novigrad.app" timestamp="1604072510178">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="614" y="86" key="#novigrad-android.Novigrad.app/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604072510178" />
-    <state x="422" y="348" key="AndroidCreateResourceFileDialog" timestamp="1603919464560">
+    <state x="388" y="383" width="840" height="448" key="AndroidCreateResourceFileDialog" timestamp="1605819018925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="388" y="383" width="840" height="448" key="AndroidCreateResourceFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605819018925" />
     <state x="422" y="348" key="AndroidCreateResourceFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603919464560" />
     <state x="540" y="275" key="AndroidCreateResourceFileDialog/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603814288603" />
+    <state x="729" y="266" width="461" height="501" key="AndroidProcessChooserDialog" timestamp="1605926281897">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="729" y="266" width="461" height="501" key="AndroidProcessChooserDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605926281897" />
     <state x="963" y="105" key="FileChooserDialogImpl" timestamp="1603986072560">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="963" y="105" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603986072560" />
     <state x="963" y="105" key="FileChooserDialogImpl/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603932741802" />
-    <state width="1859" height="278" key="GridCell.Tab.0.bottom" timestamp="1605736480732">
+    <state width="1876" height="279" key="GridCell.Tab.0.bottom" timestamp="1605930380779">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604083241815" />
+    <state width="1876" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605930380779" />
     <state width="1877" height="155" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1602172461813" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605736480732" />
     <state width="2003" height="248" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288339" />
     <state width="1307" height="336" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603941653992" />
-    <state width="1859" height="278" key="GridCell.Tab.0.center" timestamp="1605736480732">
+    <state width="1876" height="279" key="GridCell.Tab.0.center" timestamp="1605930380779">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604083241815" />
+    <state width="1876" height="279" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605930380779" />
     <state width="1877" height="155" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1602172461811" />
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605736480732" />
     <state width="2003" height="248" key="GridCell.Tab.0.center/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288339" />
     <state width="1307" height="336" key="GridCell.Tab.0.center/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603941653992" />
-    <state width="1859" height="278" key="GridCell.Tab.0.left" timestamp="1605736480732">
+    <state width="1876" height="279" key="GridCell.Tab.0.left" timestamp="1605930380779">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604083241815" />
+    <state width="1876" height="279" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605930380779" />
     <state width="1877" height="155" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1602172461807" />
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605736480732" />
     <state width="2003" height="248" key="GridCell.Tab.0.left/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288338" />
     <state width="1307" height="336" key="GridCell.Tab.0.left/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603941653992" />
-    <state width="1859" height="278" key="GridCell.Tab.0.right" timestamp="1605736480732">
+    <state width="1876" height="279" key="GridCell.Tab.0.right" timestamp="1605930380779">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604083241815" />
+    <state width="1876" height="279" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605930380779" />
     <state width="1877" height="155" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1602172461813" />
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605736480732" />
     <state width="2003" height="248" key="GridCell.Tab.0.right/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288339" />
     <state width="1307" height="336" key="GridCell.Tab.0.right/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603941653992" />
+    <state width="1876" height="347" key="GridCell.Tab.1.bottom" timestamp="1605926871291">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605926871291" />
+    <state width="1876" height="347" key="GridCell.Tab.1.center" timestamp="1605926871291">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="347" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605926871291" />
+    <state width="1876" height="347" key="GridCell.Tab.1.left" timestamp="1605926871291">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="347" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605926871291" />
+    <state width="1876" height="347" key="GridCell.Tab.1.right" timestamp="1605926871291">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="347" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605926871291" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1603846675784">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -621,6 +663,10 @@
     <state x="828" y="202" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1602172174788" />
     <state x="-1677" y="28" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602103505622" />
     <state x="828" y="202" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603846663295" />
+    <state x="499" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1605897578384">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="499" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605897578384" />
     <state x="2153" y="64" width="1271" height="996" key="dock-window-1" timestamp="1603845265651">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -637,11 +683,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603824450690" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605639994224">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605921580339">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1604089194696" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605921580339" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605639994224" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603810637922" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo typeName="com.google.firebase.firestore.DocumentReference" fieldName="key" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
