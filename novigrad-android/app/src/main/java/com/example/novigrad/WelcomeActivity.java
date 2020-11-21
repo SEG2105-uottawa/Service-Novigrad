@@ -73,6 +73,7 @@ public class WelcomeActivity extends AppCompatActivity {
         if (user.getRole().equals("Employee")) {
             Intent intent = new Intent(this, EmployeeActivity.class);
             startActivity(intent);
+
         } else {
 
         }

@@ -72,7 +72,7 @@ public class ServiceSelectorAdapter extends RecyclerView.Adapter<ServiceSelector
                 }
             });*/
         }
-
+        // known issue where employee is not updated from both adapters; only updated certain fields to fix this problem
         public void bind(final Service service, final int position, final ServiceSelectorAdapter adapter) {
             serviceName.setText(service.getName());
             servicePrice.setText(String.format("$ %.2f", service.getPrice()));
@@ -95,7 +95,7 @@ public class ServiceSelectorAdapter extends RecyclerView.Adapter<ServiceSelector
                         empServices.remove(servRef);
                     }
                     adapter.notifyDataSetChanged();
-                    db.collection("users").document(employee.getId()).set(employee).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("users").document(employee.getId()).update("services", empServices).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Helper.snackbar(buttonView, "Updated services");

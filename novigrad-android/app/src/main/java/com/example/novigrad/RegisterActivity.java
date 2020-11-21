@@ -16,6 +16,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentReference;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegisterActivity extends AppCompatActivity {
     /* Registers a user */
     FirebaseAuth mAuth;
@@ -70,14 +73,21 @@ public class RegisterActivity extends AppCompatActivity {
     public void createUserDocument(RegisterData registerData, AuthResult authResult, final View view) {
         /* Create the user in Firebase Fire store */
         String uid = authResult.getUser().getUid();
-        User user = new User(uid, registerData);
+        final User user = new User(uid, registerData);
 
         // Upload to firebase
-        DocumentReference userRef = db.collection("users").document(user.getId());
+        final DocumentReference userRef = db.collection("users").document(user.getId());
         userRef.set(user.toDocument()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    if (user.getRole().equals("Employee")) {
+                        userRef.update("services", new ArrayList<>());
+                        userRef.update("serviceRequests", new ArrayList<>());
+                        userRef.update("customers", new ArrayList<>());
+                    } else {
+                        userRef.update("serviceRequests",new ArrayList<>());
+                    }
                     RegisterActivity.this.startWelcomeActivity();
                 } else {
                     Helper.snackbar(view, "Register failed: "+ task.getException().getMessage());

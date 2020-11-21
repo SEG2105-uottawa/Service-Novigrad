@@ -90,14 +90,14 @@ public class ServiceReqManagerAdapter extends RecyclerView.Adapter<ServiceReqMan
                     DocumentReference reqDoc = db.collection("service_requests").document(request.getId());
                     employee.getCustomers().add(request.getCustomer());
                     employee.getServiceRequests().remove(reqDoc);
-                    reqDoc.update("approve", request.isApproved()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    reqDoc.update("approved", request.isApproved()).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Helper.snackbar(v, "Updated Request");
                         }
                     });
 
-                    db.collection("users").document(employee.getId()).set(employee).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("users").document(employee.getId()).update("serviceRequests", employee.getServiceRequests()).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             adapter.requests.remove(request);
@@ -118,13 +118,13 @@ public class ServiceReqManagerAdapter extends RecyclerView.Adapter<ServiceReqMan
                     DocumentReference reqDoc = db.collection("service_requests").document(request.getId());
                     employee.getServiceRequests().remove(reqDoc);
                     // maybe make the request's reference to employee null
-                    reqDoc.update("approve", request.isApproved()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    reqDoc.update("approved", request.isApproved()).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Helper.snackbar(v, "Updated Request");
                         }
                     });
-                    db.collection("users").document(employee.getId()).set(employee).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("users").document(employee.getId()).update("serviceRequests", employee.getServiceRequests()).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             adapter.requests.remove(request);
