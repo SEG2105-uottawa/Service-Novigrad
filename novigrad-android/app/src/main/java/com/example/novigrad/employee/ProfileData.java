@@ -16,21 +16,29 @@ public class ProfileData {
         this.phone = Helper.getText(activity.phone);
     }
 
+    public ProfileData(String streetNumber, String streetName, String postalCode, String municipality, String phone) {
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+        this.postalCode = postalCode;
+        this.municipality = municipality;
+        this.phone = phone;
+    }
+
     public boolean isValid(View view) {
         if (!Helper.stringIsValid(streetNumber)) {
-            Helper.snackbar(view, "Please enter a street number.");
+            Helper.snackbar(view, "Please enter a valid street number.");
             return false;
         } else if (!Helper.stringIsValid(streetName)) {
-            Helper.snackbar(view, "Please enter a street name.");
+            Helper.snackbar(view, "Please enter a valid street name.");
             return false;
         } else if (!postalIsValid(postalCode)) {
             Helper.snackbar(view, "Please enter a valid postal code.");
             return false;
         } else if (!Helper.stringIsValid(municipality)) {
-            Helper.snackbar(view, "Please enter a municipality.");
+            Helper.snackbar(view, "Please enter a valid municipality.");
             return false;
         } else if (!Helper.stringIsValid(phone)) {
-            Helper.snackbar(view , "Please enter a phone number");
+            Helper.snackbar(view , "Please enter a valid phone number");
             return false;
         }
 
@@ -50,6 +58,23 @@ public class ProfileData {
                         if (Character.isLetter(character)) {
                             return false;
                         }
+                    }
+                }
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean phoneIsValid(String phone) {
+        if (Helper.stringIsValid(phone)) {
+            if (phone.length() == 10) {
+                for (int i = 0; i < 10; i++) {
+                    char character = phone.charAt(i);
+                    if (!Character.isDigit(character)) {
+                        return false;
                     }
                 }
 

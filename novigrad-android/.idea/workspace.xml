@@ -30,12 +30,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2144d992-c628-407d-b605-ced338b57c17" name="Default Changelist" comment="">
+    <list default="true" id="5ed1f398-d2c9-496f-8046-69a915465edf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/RegisterActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/WelcomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/WelcomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceReqManagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceReqManagerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceSelectorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceSelectorAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ProfileData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_editor_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_editor_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +64,8 @@
       <list>
         <option value="Enum" />
         <option value="layoutResourceFile_vertical" />
-        <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -114,23 +113,7 @@
       <recent name="C:\Users\danie\Desktop\seg2105f20-project-project_gr_69" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.app">
-    <configuration name="LoginDataUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Novigrad.app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.novigrad.admin.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.novigrad" />
-      <option name="MAIN_CLASS_NAME" value="com.example.novigrad.LoginDataUnitTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Android JUnit.ProfileDataUnitTest">
     <configuration name="LoginDataUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
@@ -147,17 +130,34 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterDataUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileDataUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="Novigrad.app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.novigrad.admin.*" />
+          <option name="PATTERN" value="com.example.novigrad.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.novigrad" />
-      <option name="MAIN_CLASS_NAME" value="com.example.novigrad.RegisterDataUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="com.example.novigrad.ProfileDataUnitTest" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileDataUnitTest.postal" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Novigrad.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.novigrad.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.novigrad" />
+      <option name="MAIN_CLASS_NAME" value="com.example.novigrad.ProfileDataUnitTest" />
+      <option name="METHOD_NAME" value="postal" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
@@ -489,10 +489,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android JUnit.ProfileDataUnitTest" />
+        <item itemvalue="Android JUnit.ProfileDataUnitTest.postal" />
         <item itemvalue="Android App.LoginActivity" />
         <item itemvalue="Android App.WelcomeActivity" />
         <item itemvalue="Android App.AdminActivity" />
-        <item itemvalue="Android JUnit.LoginDataUnitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -535,6 +536,10 @@
     </state>
     <state x="477" y="266" key="#PSD/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605749718834" />
     <state x="477" y="266" key="#PSD/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603939858247" />
+    <state x="563" y="140" key="#ProfileDataUnitTest" timestamp="1606005628619">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="563" y="140" key="#ProfileDataUnitTest/0.0.1920.1040@0.0.1920.1040" timestamp="1606005628619" />
     <state x="497" y="159" key="#Updates" timestamp="1603986166225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -543,12 +548,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1602087951772" />
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1605913909828">
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1606005382069">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605913909828" />
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603920288070" />
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605734889630" />
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1606005382069" />
     <state x="-1744" y="56" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602118993756" />
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603940757790" />
     <state x="585" y="236" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603986172972">
