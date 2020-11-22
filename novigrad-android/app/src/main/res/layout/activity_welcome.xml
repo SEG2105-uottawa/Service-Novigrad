@@ -17,6 +17,11 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="20dp"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcomeMsg"
+        android:layout_centerInParent="true">
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStart"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -24,19 +29,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/welcomeMsg"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:onClick="start"
-        android:text="@string/start" />
+        android:text="@string/start"
+        android:layout_marginRight="10dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcomeMsg"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="244dp"
         android:onClick="logout"
         android:text="@string/logout" />
+    </LinearLayout>
 
 </RelativeLayout>

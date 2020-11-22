@@ -9,9 +9,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".employee.ServiceRequestManagerActivity"></activity>
+        <activity android:name=".employee.ServiceManagerActivity"></activity>
         <activity android:name=".employee.ProfileEditorActivity" />
-        <activity android:name=".employee.EmployeeActivity" />
+        <activity android:name=".employee.ProfileActivity" />
         <activity android:name=".admin.ServiceEditorActivity" />
         <activity android:name=".admin.AdminActivity" />
         <activity android:name=".RegisterActivity" />

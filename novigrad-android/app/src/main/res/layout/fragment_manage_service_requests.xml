@@ -19,7 +19,7 @@
             android:layout_marginLeft="15dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ServiceRequestRecycleView"
             tools:layout_editor_absoluteY="24dp"

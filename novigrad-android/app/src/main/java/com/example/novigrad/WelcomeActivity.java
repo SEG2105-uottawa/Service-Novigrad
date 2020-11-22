@@ -9,13 +9,15 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.novigrad.domain.User;
-import com.example.novigrad.employee.EmployeeActivity;
+import com.example.novigrad.employee.ProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.io.Serializable;
 
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -72,11 +74,10 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void start(View view) {
         if (user.getRole().equals("Employee")) {
-            Intent intent = new Intent(this, EmployeeActivity.class);
+            Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
-
         } else {
-
+            Helper.snackbar(view, "Customer functionality not implemented yet");
         }
     }
 

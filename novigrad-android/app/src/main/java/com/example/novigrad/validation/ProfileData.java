@@ -5,9 +5,13 @@ import android.view.View;
 import com.example.novigrad.Helper;
 import com.example.novigrad.employee.ProfileEditorActivity;
 
-public class ProfileData {
+import java.util.ArrayList;
+import java.util.Map;
 
-    private String streetNumber, streetName, postalCode, municipality, phone;
+public class ProfileData {
+    public String streetNumber, streetName, postalCode, municipality, phone;
+    public int fromTime, toTime;
+    public ArrayList<String> days;
 
     public ProfileData(ProfileEditorActivity activity) {
         this.streetNumber = Helper.getText(activity.streetNumber);
@@ -15,14 +19,39 @@ public class ProfileData {
         this.postalCode = Helper.getText(activity.postalCode);
         this.municipality = Helper.getText(activity.municipality);
         this.phone = Helper.getText(activity.phone);
+        this.fromTime = activity.fromTimeListener.getTime();
+        this.toTime = activity.toTimeListener.getTime();
+        this.days = activity.getCheckedDays();
     }
 
-    public ProfileData(String streetNumber, String streetName, String postalCode, String municipality, String phone) {
+    public static ProfileData createProfileDataFromFirebase(Object subdocument) {
+        if (subdocument == null) {
+            return null;
+        } else {
+            Map<String, Object> map = (Map<String, Object>) subdocument;
+            return new ProfileData(map);
+        }
+    }
+    private ProfileData(Map<String, Object> map) {
+        this.streetNumber = (String) map.get("streetNumber");
+        this.streetName = (String) map.get("streetName");
+        this.postalCode = (String) map.get("postalCode");
+        this.municipality = (String) map.get("municipality");
+        this.phone = (String) map.get("phone");
+        this.fromTime = (int) (long) map.get("fromTime");
+        this.toTime = (int) (long) map.get("toTime");
+        this.days = (ArrayList<String>) map.get("days");
+    }
+
+    public ProfileData(String streetNumber, String streetName, String postalCode, String municipality, String phone, int fromTime, int toTime, ArrayList<String> days) {
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.postalCode = postalCode;
         this.municipality = municipality;
         this.phone = phone;
+        this.fromTime = fromTime;
+        this.toTime = toTime;
+        this.days = days;
     }
 
     public boolean isValid(View view) {
@@ -61,7 +90,6 @@ public class ProfileData {
                         }
                     }
                 }
-
                 return true;
             }
         }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".employee.ProfileActivity"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Employee Profile"
+        android:textSize="36sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditProfile"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onEditProfile"
+            android:text="@string/edit_profile"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditServices"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_offered_services"
+            android:onClick="onServiceManager"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/profileErrorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You have not set the necessary profile information"
+            android:textColor="@color/design_default_color_error"
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/profileInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/profilePhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number..."
+            />
+
+        <TextView
+            android:id="@+id/profileAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address..."
+        />
+        <TextView
+            android:id="@+id/profileWorkingHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Working Hours..."
+        />
+    </LinearLayout>
+
+
+</LinearLayout>

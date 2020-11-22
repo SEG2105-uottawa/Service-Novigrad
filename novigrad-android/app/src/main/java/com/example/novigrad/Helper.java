@@ -41,4 +41,15 @@ public abstract class Helper {
             return null;
         }
     }
+
+    public static String convertTimeToString(int value) {
+        // value is a number between 0 and 1439
+        int hour = value / 60;
+        int minute = value % 60;
+
+        String ampm = (hour < 12) ? "am" : "pm";
+        int h = hour % 12;
+        String m = (minute < 10) ? String.format("0%s", minute) : "" + minute;
+        return String.format("%s:%s%s", h, m, ampm);
+    }
 }

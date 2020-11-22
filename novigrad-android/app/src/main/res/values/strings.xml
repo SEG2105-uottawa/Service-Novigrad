@@ -38,7 +38,7 @@
 
     <string name="edit_profile">Edit Profile</string>
     <string name="edit_phone">Edit Phone number</string>
-    <string name="edit_offered_services">Edit Offered Services</string>
+    <string name="edit_offered_services">Edit Services</string>
     <string name="edit_address">Edit Address</string>
     <string name="street_number">Street #</string>
     <string name="street_name">Street Name</string>
