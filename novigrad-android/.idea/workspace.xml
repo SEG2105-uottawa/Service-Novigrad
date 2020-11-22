@@ -32,14 +32,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5ed1f398-d2c9-496f-8046-69a915465edf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/domain/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/domain/ServiceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/domain/ServiceRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ManageServiceRequestsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceRequestsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceManagerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceManagerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceRequestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceRequestAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_manage_service_requests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_manage_service_requests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../novigrad-firebase-functions/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../novigrad-firebase-functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../novigrad-firebase-functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/admin/ServiceManagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/admin/ServiceManagerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceRequestsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceRequestsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../novigrad-firebase-functions/index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -605,7 +600,7 @@
     </state>
     <state x="963" y="105" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603986072560" />
     <state x="963" y="105" key="FileChooserDialogImpl/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603932741802" />
-    <state width="1877" height="102" key="GridCell.Tab.0.bottom" timestamp="1606072626415">
+    <state width="1877" height="222" key="GridCell.Tab.0.bottom" timestamp="1606081449434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1339" height="263" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605938742036" />
@@ -613,8 +608,8 @@
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605736480732" />
     <state width="2003" height="248" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288339" />
-    <state width="1877" height="102" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606072626415" />
-    <state width="1877" height="102" key="GridCell.Tab.0.center" timestamp="1606072626415">
+    <state width="1877" height="222" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606081449434" />
+    <state width="1877" height="222" key="GridCell.Tab.0.center" timestamp="1606081449434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1339" height="263" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605938742036" />
@@ -622,8 +617,8 @@
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605736480732" />
     <state width="2003" height="248" key="GridCell.Tab.0.center/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288339" />
-    <state width="1877" height="102" key="GridCell.Tab.0.center/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606072626415" />
-    <state width="1877" height="102" key="GridCell.Tab.0.left" timestamp="1606072626414">
+    <state width="1877" height="222" key="GridCell.Tab.0.center/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606081449434" />
+    <state width="1877" height="222" key="GridCell.Tab.0.left" timestamp="1606081449433">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1339" height="263" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605938742035" />
@@ -631,8 +626,8 @@
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605736480732" />
     <state width="2003" height="248" key="GridCell.Tab.0.left/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288338" />
-    <state width="1877" height="102" key="GridCell.Tab.0.left/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606072626414" />
-    <state width="1877" height="102" key="GridCell.Tab.0.right" timestamp="1606072626415">
+    <state width="1877" height="222" key="GridCell.Tab.0.left/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606081449433" />
+    <state width="1877" height="222" key="GridCell.Tab.0.right" timestamp="1606081449434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1339" height="263" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605938742036" />
@@ -640,7 +635,7 @@
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605736480732" />
     <state width="2003" height="248" key="GridCell.Tab.0.right/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288339" />
-    <state width="1877" height="102" key="GridCell.Tab.0.right/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606072626415" />
+    <state width="1877" height="222" key="GridCell.Tab.0.right/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606081449434" />
     <state width="1876" height="347" key="GridCell.Tab.1.bottom" timestamp="1605933018537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -671,10 +666,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="499" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605897578384" />
-    <state x="1931" y="-12" width="1474" height="889" maximized="true" key="dock-window-1" timestamp="1606066995851">
+    <state x="2029" y="20" width="1474" height="889" key="dock-window-1" timestamp="1606074771953">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1931" y="-12" width="1474" height="889" maximized="true" key="dock-window-1/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606066995851" />
+    <state x="2029" y="20" width="1474" height="889" key="dock-window-1/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606074771953" />
     <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1603895619823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

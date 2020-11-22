@@ -75,33 +75,22 @@ public class ServiceRequestsFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         String uid = this.mAuth.getCurrentUser().getUid();
-        DocumentReference userRef = this.db.collection("users").document(uid);
-        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        final DocumentReference userRef = this.db.collection("users").document(uid);
+        Query requests = db.collection("service_requests").whereEqualTo("employee", userRef).whereEqualTo("processed", false);
+        requests.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                // Request is completed
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    Query requests = db.collection("service_requests").whereEqualTo("employee", document.getReference()).whereEqualTo("processed", false);
-                    requests.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-                                ArrayList<ServiceRequest> serviceRequests = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    serviceRequests.add(new ServiceRequest(document));
-                                }
-                                // Update the adapter
-                                if (adapter == null) {
-                                    adapter = createServiceReqManager(serviceRequests, getActivity().getApplicationContext());
-                                } else {
-                                    adapter.setServiceRequests(serviceRequests);
-                                }
-                            }
-                        }
-                    });
-                } else {
-                    System.out.println("Query Failed");
+                    ArrayList<ServiceRequest> serviceRequests = new ArrayList<>();
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        serviceRequests.add(new ServiceRequest(document));
+                    }
+                    // Update the adapter
+                    if (adapter == null) {
+                        adapter = createServiceReqManager(serviceRequests, getActivity().getApplicationContext());
+                    } else {
+                        adapter.setServiceRequests(serviceRequests);
+                    }
                 }
             }
         });

@@ -10,6 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.novigrad.Helper;
 import com.example.novigrad.R;
 import com.example.novigrad.domain.Service;
@@ -48,15 +52,22 @@ public class ServiceManagerAdapter extends RecyclerView.Adapter<ServiceManagerAd
             serviceDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
-                    adapter.services.remove(position);
+                    adapter.services.remove(getAdapterPosition());
                     adapter.notifyDataSetChanged();
-                    FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    db.collection(Service.COLLECTION).document(id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+
+                    String url = "https://us-central1-novigrad-eadd2.cloudfunctions.net/novigradAdminDeleteService?id="+id;
+                    Volley.newRequestQueue(adapter.context).add(new StringRequest(url, new Response.Listener<String>() {
                         @Override
-                        public void onSuccess(Void aVoid) {
-                            Helper.snackbar(v, "Deleted: " + name);
+                        public void onResponse(String response) {
+
+                            Helper.snackbar(v, "Deleted: " + service.getName());
                         }
-                    });
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            System.out.println("Error");
+                        }
+                    }));
                 }
             });
             serviceEdit.setOnClickListener(new View.OnClickListener() {
