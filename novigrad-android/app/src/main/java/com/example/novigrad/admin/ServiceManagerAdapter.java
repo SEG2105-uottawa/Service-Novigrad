@@ -2,29 +2,21 @@ package com.example.novigrad.admin;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.fragment.app.Fragment;
 
 import com.example.novigrad.Helper;
 import com.example.novigrad.R;
-import com.example.novigrad.Service;
+import com.example.novigrad.domain.Service;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.StringJoiner;
-import java.util.stream.Collectors;
 
 public class ServiceManagerAdapter extends RecyclerView.Adapter<ServiceManagerAdapter.ViewHolder> {
     /* Adapter to create the admin service manager */
@@ -56,13 +48,13 @@ public class ServiceManagerAdapter extends RecyclerView.Adapter<ServiceManagerAd
             serviceDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
+                    adapter.services.remove(position);
+                    adapter.notifyDataSetChanged();
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     db.collection(Service.COLLECTION).document(id).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Helper.snackbar(v, "Deleted: " + name);
-                            adapter.services.remove(position);
-                            adapter.notifyDataSetChanged();
                         }
                     });
                 }

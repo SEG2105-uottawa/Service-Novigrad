@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.novigrad.admin.AdminActivity;
+import com.example.novigrad.validation.LoginData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -17,7 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-    TextInputLayout emailInput, passwordInput;
+    public TextInputLayout emailInput, passwordInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

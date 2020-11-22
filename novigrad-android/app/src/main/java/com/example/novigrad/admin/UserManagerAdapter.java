@@ -15,7 +15,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.novigrad.Helper;
 import com.example.novigrad.R;
-import com.example.novigrad.User;
+import com.example.novigrad.domain.User;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class UserManagerAdapter extends RecyclerView.Adapter<UserManagerAdapter.
             userDelete = itemView.findViewById(R.id.userDeleteButton);
         }
 
-        public void bind(User user, final int position, final UserManagerAdapter adapter) {
+        public void bind(User user, final UserManagerAdapter adapter) {
             /* Add data and delete listener to admin_manage_user.xml template  */
             final String id = user.getId();
             final String email = user.getEmail();
@@ -51,13 +51,14 @@ public class UserManagerAdapter extends RecyclerView.Adapter<UserManagerAdapter.
                 @Override
                 public void onClick(final View v) {
                     // This triggers a function to delete the user in firestore and firebase auth
-                    //
+                    adapter.users.remove(getAdapterPosition());
+                    adapter.notifyDataSetChanged();
+
                     String url = "https://us-central1-novigrad-eadd2.cloudfunctions.net/novigradAdminDeleteUser?id="+id;
                     Volley.newRequestQueue(adapter.context).add(new StringRequest(url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            adapter.users.remove(position);
-                            adapter.notifyDataSetChanged();
+
                             Helper.snackbar(v, "Deleted: " + email);
                         }
                     }, new Response.ErrorListener() {
@@ -93,7 +94,7 @@ public class UserManagerAdapter extends RecyclerView.Adapter<UserManagerAdapter.
     public void onBindViewHolder(@NonNull UserManagerAdapter.ViewHolder holder, int position) {
         /* Recycler view method - puts data into the layout */
         final User user = this.users.get(position);
-        holder.bind(user, position, this);
+        holder.bind(user, this);
     }
 
     @Override

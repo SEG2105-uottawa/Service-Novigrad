@@ -1,5 +1,7 @@
 package com.example.novigrad;
 
+import com.example.novigrad.validation.LoginData;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 

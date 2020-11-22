@@ -1,6 +1,6 @@
 package com.example.novigrad;
 
-import com.example.novigrad.employee.ProfileData;
+import com.example.novigrad.validation.ProfileData;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

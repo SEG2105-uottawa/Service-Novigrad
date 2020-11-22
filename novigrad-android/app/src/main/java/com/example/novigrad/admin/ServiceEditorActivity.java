@@ -3,18 +3,13 @@ package com.example.novigrad.admin;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.novigrad.Helper;
 import com.example.novigrad.R;
-import com.example.novigrad.Service;
-import com.example.novigrad.User;
-import com.example.novigrad.WelcomeActivity;
+import com.example.novigrad.domain.Service;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

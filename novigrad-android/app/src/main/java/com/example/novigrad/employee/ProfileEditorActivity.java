@@ -9,16 +9,16 @@ import android.widget.EditText;
 
 import com.example.novigrad.Helper;
 import com.example.novigrad.R;
+import com.example.novigrad.validation.ProfileData;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfileEditorActivity extends AppCompatActivity {
-
-    EditText streetNumber, streetName, postalCode, municipality, phone;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
+    public EditText streetNumber, streetName, postalCode, municipality, phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

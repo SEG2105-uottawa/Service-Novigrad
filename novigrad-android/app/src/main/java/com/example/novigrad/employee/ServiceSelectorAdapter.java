@@ -1,38 +1,27 @@
 package com.example.novigrad.employee;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.novigrad.Employee;
+import com.example.novigrad.domain.Employee;
 import com.example.novigrad.Helper;
 import com.example.novigrad.R;
-import com.example.novigrad.Service;
-import com.example.novigrad.ServiceRequest;
-import com.example.novigrad.User;
-import com.example.novigrad.WelcomeActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.novigrad.domain.Service;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class ServiceSelectorAdapter extends RecyclerView.Adapter<ServiceSelectorAdapter.ViewHolder>{
     private Context context;
@@ -120,7 +109,7 @@ public class ServiceSelectorAdapter extends RecyclerView.Adapter<ServiceSelector
     @NonNull
     @Override
     public ServiceSelectorAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.emp_service_select_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.employee_service_select_card, parent, false);
         return new ViewHolder(view);
     }
 

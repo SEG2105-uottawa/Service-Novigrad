@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.example.novigrad.domain.User;
+import com.example.novigrad.validation.RegisterData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -17,14 +19,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentReference;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
     /* Registers a user */
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-    TextInputLayout firstName, lastName, email, password, confirmPassword;
-    RadioGroup roleSelector;
+    public TextInputLayout firstName, lastName, email, password, confirmPassword;
+    public RadioGroup roleSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
