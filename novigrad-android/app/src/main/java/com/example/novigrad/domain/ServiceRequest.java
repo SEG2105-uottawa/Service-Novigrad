@@ -8,19 +8,30 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Exclude;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ServiceRequest {
-    private static final String APPROVED_KEY = "approved";
     private DocumentReference service, customer, employee;
     private final String id;
-    private boolean approved = false;
+    private boolean processed, approved;
 
 
     public ServiceRequest(DocumentSnapshot requestDoc){
         this.id = requestDoc.getId();
-        this.approved = (boolean) requestDoc.get(APPROVED_KEY);
+        this.processed = (boolean) requestDoc.get("processed");
+        this.approved = (boolean) requestDoc.get("approved");
         customer = (DocumentReference) requestDoc.get("customer");
         employee = (DocumentReference) requestDoc.get("employee");
         service = (DocumentReference) requestDoc.get("service");
+    }
+
+    public boolean isProcessed() {
+        return processed;
+    }
+
+    public void setProcessed(boolean processed){
+        this.processed = processed;
     }
 
     public boolean isApproved() {
@@ -31,29 +42,27 @@ public class ServiceRequest {
         this.approved = approved;
     }
 
-    public DocumentReference getService() {
-        return service;
+    public Map<String, Object> update(boolean processed, boolean approved) {
+        this.processed = processed;
+        this.approved = approved;
+        Map<String, Object> m = new HashMap<>();
+        m.put("processed", processed);
+        m.put("approved", approved);
+        return m;
     }
 
-    public void setService(DocumentReference service) {
-        this.service = service;
+    public DocumentReference getService() {
+        return service;
     }
 
     public DocumentReference getCustomer() {
         return customer;
     }
 
-    public void setCustomer(DocumentReference customer) {
-        this.customer = customer;
-    }
-
     public DocumentReference getEmployee() {
         return employee;
     }
 
-    public void setEmployee(DocumentReference employee) {
-        this.employee = employee;
-    }
 
     @Exclude
     public String getId() {

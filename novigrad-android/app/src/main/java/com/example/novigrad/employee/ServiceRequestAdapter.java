@@ -27,15 +27,18 @@ import java.util.ArrayList;
 
 public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAdapter.ViewHolder>{
     private Context context;
-    private ArrayList<ServiceRequest> requests = new ArrayList<>();
+    private ArrayList<ServiceRequest> serviceRequests;
+
+    public ServiceRequestAdapter(ArrayList<ServiceRequest> serviceRequests) {
+        this.serviceRequests = serviceRequests;
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView serviceName;
         private TextView customerName;
         private Button approveReq, rejectReq;
-        private Service serv;
+        private Service service;
         private Customer cust;
-        private Employee employee;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -45,20 +48,19 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
             this.rejectReq = itemView.findViewById(R.id.requestRejectButton);
         }
 
-        public void bind(final ServiceRequest request, final int position, final ServiceRequestAdapter adapter){
-
-            request.getService().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        public void bind(final ServiceRequest serviceRequest, final int position, final ServiceRequestAdapter adapter){
+            serviceRequest.getService().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     // Request is completed
                     if (task.isSuccessful()) {
-                        serv = new Service(task.getResult());
-                        serviceName.setText(serv.getName());
+                        service = new Service(task.getResult());
+                        serviceName.setText(service.getName());
                     }
                 }
             });
 
-            request.getCustomer().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            serviceRequest.getCustomer().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     // Request is completed
@@ -69,73 +71,40 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
                 }
             });
 
-            request.getEmployee().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        employee = new Employee(task.getResult());
-                    }
-                }
-            });
-
             // currently, let the customer see if their request has been approved before destroying the servicerequest instance
             // delete the request from the branch
             approveReq.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
+                    adapter.serviceRequests.remove(getAdapterPosition());
+                    adapter.notifyDataSetChanged();
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    request.setApproved(true);
-                    DocumentReference reqDoc = db.collection("service_requests").document(request.getId());
-                    employee.getCustomers().add(request.getCustomer());
-                    employee.getServiceRequests().remove(reqDoc);
-                    reqDoc.update("approved", request.isApproved()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    DocumentReference serviceRequestDocument = db.collection("service_requests").document(serviceRequest.getId());
+                    serviceRequestDocument.update(serviceRequest.update(true, true)).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Helper.snackbar(v, "Updated Request");
+                            Helper.snackbar(null, "Updated Request");
                         }
                     });
-
-                    db.collection("users").document(employee.getId()).update("serviceRequests", employee.getServiceRequests()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            adapter.requests.remove(request);
-                            Helper.snackbar(v, "Request approved");
-                            adapter.notifyDataSetChanged();
-                        }
-                    });
-                    // maybe make the request's reference to employee null
-
                 }
             });
 
             rejectReq.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
+                    adapter.serviceRequests.remove(getAdapterPosition());
+                    adapter.notifyDataSetChanged();
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    request.setApproved(false);
-                    DocumentReference reqDoc = db.collection("service_requests").document(request.getId());
-                    employee.getServiceRequests().remove(reqDoc);
-                    // maybe make the request's reference to employee null
-                    reqDoc.update("approved", request.isApproved()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    DocumentReference serviceRequestDocument = db.collection("service_requests").document(serviceRequest.getId());
+                    serviceRequestDocument.update(serviceRequest.update(true, false)).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Helper.snackbar(v, "Updated Request");
-                        }
-                    });
-                    db.collection("users").document(employee.getId()).update("serviceRequests", employee.getServiceRequests()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            adapter.requests.remove(request);
-                            Helper.snackbar(v, "Request rejected");
-                            adapter.notifyDataSetChanged();
+                            Helper.snackbar(null, "Updated Request");
                         }
                     });
                 }
             });
-
         }
-
-
     }
     @NonNull
     @Override
@@ -146,7 +115,7 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
 
     @Override
     public void onBindViewHolder(@NonNull ServiceRequestAdapter.ViewHolder holder, int position) {
-        final ServiceRequest request = this.requests.get(position);
+        final ServiceRequest request = this.serviceRequests.get(position);
         holder.bind(request, position, this);
     }
 
@@ -155,13 +124,13 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
         setServiceRequests(requests);
     }
 
-    public void setServiceRequests(ArrayList<ServiceRequest> requests) {
-        this.requests = requests;
+    public void setServiceRequests(ArrayList<ServiceRequest> serviceRequests) {
+        this.serviceRequests = serviceRequests;
         this.notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return requests.size();
+        return serviceRequests.size();
     }
 }

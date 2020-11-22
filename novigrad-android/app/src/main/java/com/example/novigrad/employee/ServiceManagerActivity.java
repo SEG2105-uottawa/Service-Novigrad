@@ -21,7 +21,7 @@ public class ServiceManagerActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
-    private ManageServiceRequestsFragment manageServices;
+    private ServiceRequestsFragment manageServices;
     private ServiceSelectorFragment selectServices;
 
     @Override
@@ -34,7 +34,7 @@ public class ServiceManagerActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.serviceViewPager);
         tabLayout = findViewById(R.id.serviceTabs);
         selectServices = new ServiceSelectorFragment();
-        manageServices = new ManageServiceRequestsFragment();
+        manageServices = new ServiceRequestsFragment();
 
         tabLayout.setupWithViewPager(viewPager);
         ViewPagerAdapter viewpagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);

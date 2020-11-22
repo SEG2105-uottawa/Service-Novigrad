@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.novigrad.R;
+import com.example.novigrad.domain.Employee;
 import com.example.novigrad.domain.ServiceRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,16 +24,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ManageServiceRequestsFragment#newInstance} factory method to
+ * Use the {@link ServiceRequestsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ManageServiceRequestsFragment extends Fragment {
+public class ServiceRequestsFragment extends Fragment {
 
     ServiceRequestAdapter adapter;
     FirebaseFirestore db;
@@ -78,29 +82,26 @@ public class ManageServiceRequestsFragment extends Fragment {
                 // Request is completed
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    final ArrayList<ServiceRequest> reqs = new ArrayList<>();
-                    List<DocumentReference> requests = (List<DocumentReference>) document.get("serviceRequests");
-                    List<Task<DocumentSnapshot>> tasks = new ArrayList<>();
-                    for (DocumentReference documentReference : requests) {
-                        Task<DocumentSnapshot> documentSnapshotTask = documentReference.get();
-                        tasks.add(documentSnapshotTask);
-                    }
-                    Tasks.whenAllSuccess(tasks).addOnSuccessListener(new OnSuccessListener<List<Object>>() {
+                    Query requests = db.collection("service_requests").whereEqualTo("employee", document.getReference()).whereEqualTo("processed", false);
+                    requests.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
-                        public void onSuccess(List<Object> objects) {
-                            for (Object object : objects) {
-                                reqs.add(new ServiceRequest((DocumentSnapshot)object));
-                            }
-                            if (adapter == null) {
-                                adapter = createServiceReqManager(reqs, getActivity().getApplicationContext());
-                            } else {
-                                adapter.setServiceRequests(reqs);
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                ArrayList<ServiceRequest> serviceRequests = new ArrayList<>();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    serviceRequests.add(new ServiceRequest(document));
+                                }
+                                // Update the adapter
+                                if (adapter == null) {
+                                    adapter = createServiceReqManager(serviceRequests, getActivity().getApplicationContext());
+                                } else {
+                                    adapter.setServiceRequests(serviceRequests);
+                                }
                             }
                         }
                     });
-
                 } else {
-                    Log.d("TAG", "failed to retrieve users service requests");
+                    System.out.println("Query Failed");
                 }
             }
         });

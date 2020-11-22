@@ -12,14 +12,12 @@ import java.util.Map;
 public class Employee extends User {
     public static String role = "Employee";
     private ArrayList<DocumentReference> services;
-    private ArrayList<DocumentReference> serviceRequests;
     private ArrayList<DocumentReference> customers;
     private ProfileData profile;
 
     public Employee(String id, String firstName, String lastName, String email) {
         super(id, firstName, lastName, email, role);
         services = new ArrayList<>();
-        serviceRequests = new ArrayList<>();
         customers = new ArrayList<>();
         profile = null;
     }
@@ -27,7 +25,6 @@ public class Employee extends User {
     public Employee(String id, RegisterData registerData) {
         super(id, registerData);
         services = new ArrayList<>();
-        serviceRequests = new ArrayList<>();
         customers = new ArrayList<>();
         profile = null;
 
@@ -40,17 +37,11 @@ public class Employee extends User {
         services = services == null ? new ArrayList<DocumentReference>() : services;
         customers = (ArrayList<DocumentReference>) userDocument.get("customers");
         customers = customers == null ? new ArrayList<DocumentReference>() : customers;
-        serviceRequests = (ArrayList<DocumentReference>) userDocument.get("serviceRequests");
-        serviceRequests = serviceRequests == null ? new ArrayList<DocumentReference>() : serviceRequests;
         profile = ProfileData.createProfileDataFromFirebase(userDocument.get("profile"));
     }
 
     public ArrayList<DocumentReference> getServices() {
         return services;
-    }
-
-    public ArrayList<DocumentReference> getServiceRequests() {
-        return serviceRequests;
     }
 
     public ArrayList<DocumentReference> getCustomers() {
