@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        cardElevation="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/branchMunicipalityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ottawa"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                />
+            <TextView
+                android:id="@+id/branchEmailAndPhoneTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email@email.com, 613-999-9999"
+                android:textColor="#555"
+                android:textAppearance="?attr/textAppearanceBody2"
+                />
+
+            <TextView
+                android:id="@+id/branchAddressTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="999 Street name (A1A1A1)"
+                android:textColor="#555"
+                android:textAppearance="?attr/textAppearanceBody2"
+                />
+            <TextView
+                android:id="@+id/branchTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00am - 4:30pm"
+                android:textColor="#555"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:layout_marginBottom="10dp"
+                />
+
+            <TextView
+                android:id="@+id/branchDaysTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:layout_marginBottom="10dp"
+                />
+
+            <TextView
+                android:id="@+id/branchServicesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service A, Service B, Service C... (NOT IMPLEMENTED)"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:layout_marginBottom="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/branchViewBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:text="view"/>
+
+                <TextView
+                    android:id="@+id/branchRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating 3/5 (NOT IMPLEMENTED)"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

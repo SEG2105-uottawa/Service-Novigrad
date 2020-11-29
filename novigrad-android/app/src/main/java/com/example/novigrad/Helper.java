@@ -50,6 +50,9 @@ public abstract class Helper {
         String ampm = (hour < 12) ? "am" : "pm";
         int h = hour % 12;
         String m = (minute < 10) ? String.format("0%s", minute) : "" + minute;
+        if (h == 0) {
+            h = 12;
+        }
         return String.format("%s:%s%s", h, m, ampm);
     }
 }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.novigrad.customer.BranchSearchActivity;
 import com.example.novigrad.domain.User;
 import com.example.novigrad.employee.ProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,8 +17,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.io.Serializable;
 
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -77,7 +76,8 @@ public class WelcomeActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
         } else {
-            Helper.snackbar(view, "Customer functionality not implemented yet");
+            Intent intent = new Intent(this, BranchSearchActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -87,6 +87,4 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
-
-    
 }

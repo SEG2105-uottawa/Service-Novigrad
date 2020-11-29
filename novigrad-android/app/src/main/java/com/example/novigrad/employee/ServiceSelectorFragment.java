@@ -77,6 +77,5 @@ public class ServiceSelectorFragment extends Fragment {
         serviceSelectRecycler.setAdapter(adapter);
         serviceSelectRecycler.setLayoutManager(new LinearLayoutManager(context));
         return adapter;
-
     }
 }

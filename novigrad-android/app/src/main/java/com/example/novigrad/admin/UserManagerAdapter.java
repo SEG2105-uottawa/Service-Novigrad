@@ -25,9 +25,7 @@ public class UserManagerAdapter extends RecyclerView.Adapter<UserManagerAdapter.
     private ArrayList<User> users = new ArrayList<>();
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView userEmail;
-        private TextView userName;
-        private TextView userRole;
+        private TextView userEmail, userName, userRole;
         private Button userDelete;
 
         public ViewHolder(@NonNull View itemView) {
