@@ -60,4 +60,12 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <string name="license_type_hint">Enter License Type (G, G1, G2, etc.)</string>
+    <string name="customer_dob_title">Date of Birth</string>
+    <string name="submit_service_request">Service Request Form</string>
+    <string name="service_req_service_sel">Select a Service</string>
+    <string name="service_req_address_title">Address</string>
+    <string name="photo_id_prompt">Please insert a photo of yourself</string>
+    <string name="citizenship_prompt">Please insert a photo of your permanent resident card or passport</string>
+    <string name="residence_prompt">Please insert a photo of proof of residence below</string>
 </resources>

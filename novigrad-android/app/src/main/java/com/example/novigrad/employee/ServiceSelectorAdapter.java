@@ -45,21 +45,6 @@ public class ServiceSelectorAdapter extends RecyclerView.Adapter<ServiceSelector
             servicePrice = itemView.findViewById(R.id.servicePrice);
 
             empServices = employee.getServices();
-            /*String uid = this.mAuth.getCurrentUser().getUid();
-            DocumentReference userRef = this.db.collection("users").document(uid);
-            userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    // Request is completed
-                    if (task.isSuccessful()) {
-                        employee = new Employee(task.getResult());
-                        services = employee.getServices();
-
-                    } else {
-                        Helper.snackbar(itemView, "Cannot retrieve data");
-                    }
-                }
-            });*/
         }
         // known issue where employee is not updated from both adapters; only updated certain fields to fix this problem
         public void bind(final Service service, final int position, final ServiceSelectorAdapter adapter) {

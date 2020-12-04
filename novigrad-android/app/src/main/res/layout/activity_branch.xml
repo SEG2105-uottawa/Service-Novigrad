@@ -1,9 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".customer.BranchActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.BranchActivity"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/FormLayout">
+
+            <TextView
+                    android:id="@+id/branchServReqMunicipalityTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ottawa"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:layout_weight="1" />
+
+            <TextView
+                    android:id="@+id/branchServReqEmailPhoneTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="email@email.com, 613-999-9999"
+                    android:textColor="#555"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:layout_weight="1" />
+
+            <TextView
+                    android:id="@+id/branchServReqAddressTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="999 Street name (A1A1A1)"
+                    android:textColor="#555"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:layout_weight="1" />
+
+            <TextView
+                    android:id="@+id/branchServReqTimeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8:00am - 4:30pm"
+                    android:textColor="#555"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1" />
+
+            <TextView
+                    android:id="@+id/branchServReqDaysTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1" />
+
+            <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingBar"
+                    android:layout_weight="1"
+                    android:stepSize="1" />
+
+            <TextView
+                    android:id="@+id/custServSelectText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/service_req_service_sel"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="24sp" />
+
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/serviceSelectSpinner"
+                    android:layout_weight="1"
+                    android:spinnerMode="dropdown"
+                    android:dropDownWidth="wrap_content"
+                    android:clickable="true" />
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/ServiceRequestFormLayout">
+
+                <TextView
+                        android:text="@string/submit_service_request"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ServiceRequestTitle"
+                        android:layout_weight="1"
+                        android:layout_marginTop="20dp"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                        android:layout_marginBottom="20dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/CustomerFirstNameInput"
+                        android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/first_name_hint"
+                            android:layout_weight="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/CustomerLastNameInput"
+                        android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/last_name_hint"
+                            android:layout_weight="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                        android:text="@string/service_req_address_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/serviceReqAddressText"
+                        android:layout_weight="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_marginTop="20dp" />
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/AddressEditLayout"
+                        android:layout_marginBottom="20dp">
+
+                    <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/editCustStreetNum"
+                            android:layout_weight="1"
+                            android:hint="@string/street_number" />
+
+                    <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:ems="10"
+                            android:id="@+id/editCustStreetName"
+                            android:layout_weight="1"
+                            android:digits="@string/alphabetical"
+                            android:hint="@string/street_name" />
+
+                </LinearLayout>
+
+                <TextView
+                        android:text="@string/customer_dob_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/CustomerDOBTitle"
+                        android:layout_weight="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <DatePicker
+                        android:id="@+id/CustomerDOBDatePicker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner" />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/LicenseDoc"
+                        android:layout_weight="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:text="@string/residence_prompt" />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:srcCompat="@drawable/ic_launcher_foreground"
+                        android:id="@+id/residenceImageView"
+                        android:layout_weight="1"
+                        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/LicenseFormLayout"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/LicenseTypeInput">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/license_type_hint"
+                                android:layout_weight="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/HealthCardFormLayout"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/citizenshipPromptText"
+                            android:layout_weight="1"
+                            android:text="@string/citizenship_prompt"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/ic_menu_camera"
+                            android:id="@+id/citizenshipImageView"
+                            android:layout_weight="1"
+                            tools:srcCompat="@drawable/ic_launcher_foreground" />
+                </LinearLayout>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/PhotoIDLayout"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/photoIDPromptTextView"
+                            android:layout_weight="1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="@string/photo_id_prompt" />
+
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:srcCompat="@drawable/ic_launcher_foreground"
+                            android:id="@+id/photoIDImageView"
+                            android:layout_weight="1"
+                            app:srcCompat="@android:drawable/ic_menu_camera" />
+                </LinearLayout>
+
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/custSubmitServReqBtn"
+                        android:layout_weight="1"
+                        android:text="@string/submit_service_request" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

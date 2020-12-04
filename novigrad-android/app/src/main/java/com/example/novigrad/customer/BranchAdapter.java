@@ -46,7 +46,7 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.ViewHolder
             municipality.setText(branch.municipality);
             emailAndPhone.setText(String.format("%s - %s", employee.getEmail(), branch.getPhone()));
             address.setText(String.format("%s %s %s", branch.streetNumber, branch.streetName, branch.postalCode));
-            days.setText(String.join(", ", branch.days));
+            days.setText(android.text.TextUtils.join(", ", branch.days));
 
             viewBranch.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -65,6 +65,7 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.ViewHolder
         return new BranchAdapter.ViewHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Employee branch = this.branches.get(position);
