@@ -17,6 +17,16 @@
             android:layout_width="wrap_content"
             android:text="Find a Branch"
             android:textSize="36sp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="startCustomerServiceRequestActivity"
+            android:text="To view your service requests click here"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@color/colorPrimary" />
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
