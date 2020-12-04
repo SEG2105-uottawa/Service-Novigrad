@@ -49,7 +49,7 @@ public class BranchActivity extends AppCompatActivity {
     ArrayList<String> serviceNames;
 
     DatePicker dateOfBirth;
-    TextView municipality, emailAndPhone, address, time, days, streetName; // branch info
+    TextView municipality, emailAndPhone, address, time, days, streetName, formTitle; // branch info
     TextInputLayout firstName, lastName;
     Spinner serviceListSpinner;
     ArrayAdapter<String> adapter;
@@ -64,6 +64,7 @@ public class BranchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branch);
         db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         municipality = findViewById(R.id.branchServReqMunicipalityTextView);
         emailAndPhone = findViewById(R.id.branchServReqEmailPhoneTextView);
@@ -71,6 +72,7 @@ public class BranchActivity extends AppCompatActivity {
         time = findViewById(R.id.branchServReqTimeTextView);
         days = findViewById(R.id.branchServReqDaysTextView);
         streetName = findViewById(R.id.editCustStreetName);
+        formTitle = findViewById(R.id.ServiceRequestTitle);
         firstName = findViewById(R.id.CustomerFirstNameInput);
         lastName = findViewById(R.id.CustomerLastNameInput);
         dateOfBirth = findViewById(R.id.CustomerDOBDatePicker);
@@ -121,22 +123,25 @@ public class BranchActivity extends AppCompatActivity {
         submitForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) { // need to add user documents and info
-                Map<String, Object> data = new HashMap<>();
-                data.put("approved", false);
-                data.put("customer", db.collection("users").document(mAuth.getCurrentUser().getUid()));
-                data.put("employee", db.collection("users").document(employee.getId()));
-                data.put("processed", false);
-                data.put("service", db.collection(Service.COLLECTION).document(service.getId()));
+                Map<String, Object> request = new HashMap<>();
+                Map<String, Object> form = new HashMap<>();
+                request.put("approved", false);
+                request.put("processed", false);
+                request.put("customer", db.collection("users").document(mAuth.getCurrentUser().getUid()));
+                request.put("employee", db.collection("users").document(employee.getId()));
+                request.put("service", db.collection(Service.COLLECTION).document(service.getId()));
+                request.put("form", form);
                 String dob = dateOfBirth.getDayOfMonth() + "/" + dateOfBirth.getMonth() + "/" +
                         dateOfBirth.getYear();
-                data.put("dob", dob);
-                // for later
-                /*db.collection("service_requests").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                form.put("dob", dob);
+
+                db.collection("service_requests").add(request).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Helper.snackbar(v, "Successfully added service request");
                     }
-                });*/
+                });
+                System.out.println("SHOULD WORK!");
             }
         });
 
@@ -160,16 +165,21 @@ public class BranchActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(List<Object> objects) {
                             for (Object object : objects) {
-                                Service serv = new Service((DocumentSnapshot)object);
-                                services.put(serv.getName(), serv);
-                                serviceNames.add(serv.getName());
+                                DocumentSnapshot document = (DocumentSnapshot) object;
+                                if (document.getData() != null) {
+                                    Service serv = new Service(document);
+                                    services.put(serv.getName(), serv);
+                                    serviceNames.add(serv.getName());
+                                }
                             }
                             adapter.notifyDataSetChanged();
                             serviceListSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                 @Override
                                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                    Helper.snackbar(view, "Retrieved service");
                                     String serviceName = parent.getItemAtPosition(position).toString();
+                                    Helper.snackbar(view, String.format("Retrieved %s request form", serviceName));
+
+                                    formTitle.setText(String.format("%s Request Form", serviceName));
                                     service = services.get(serviceName);
                                     if (service.getDriversLicenseRequired()) {
                                         driversLicenseLayout.setVisibility(View.VISIBLE);

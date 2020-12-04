@@ -76,13 +76,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:text="view"/>
+                    android:text="view"
+                    />
 
-                <TextView
-                    android:id="@+id/branchRating"
+                <RatingBar
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rating 3/5 (NOT IMPLEMENTED)"/>
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="4.5"
+                    android:progressBackgroundTint="#EEEEEE"
+                    android:progressTint="#EEEE00"
+                    android:stepSize="0.1"
+                    android:layout_gravity="center_vertical"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
