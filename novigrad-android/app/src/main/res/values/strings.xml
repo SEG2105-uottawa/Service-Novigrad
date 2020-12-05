@@ -77,4 +77,10 @@
     <string name="approve">Approve</string>
     <string name="reject">Reject</string>
     <string name="review">Review</string>
+
+    <string name="leave_rating">Leave a Rating</string>
+    <string name="leave_comment">Leave a Comment</string>
+    <string name="submit_comment">Submit Comment</string>
+    <string name="comment_success">Successfully submitted comment</string>
+    <string name="comment_failure">Failed to submit comment</string>
 </resources>

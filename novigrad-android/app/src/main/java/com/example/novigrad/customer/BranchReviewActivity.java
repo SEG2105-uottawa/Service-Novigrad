@@ -1,18 +1,24 @@
 package com.example.novigrad.customer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.novigrad.Helper;
 import com.example.novigrad.R;
 import com.example.novigrad.domain.Employee;
 import com.example.novigrad.validation.ProfileData;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -25,6 +31,8 @@ public class BranchReviewActivity extends AppCompatActivity {
 
     private TextView municipality, emailAndPhone, address, time, days;
     private RatingBar review;
+    EditText commentEditText;
+    Button submitCommentButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,8 @@ public class BranchReviewActivity extends AppCompatActivity {
         time = findViewById(R.id.branchTimeTextView);
         days = findViewById(R.id.branchDaysTextView);
         review = findViewById(R.id.ratingBar);
+        commentEditText = findViewById(R.id.commentEditText);
+        submitCommentButton = findViewById(R.id.submitCommentButton);
 
         review.setStepSize(1);
 
@@ -77,6 +87,28 @@ public class BranchReviewActivity extends AppCompatActivity {
                         System.out.println("SUCCESS!");
                     }
                 });
+            }
+        });
+
+        submitCommentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                HashMap<String, String> data = new HashMap<>();
+                if (Helper.getText(commentEditText) != null) {
+                    data.put("comment", Helper.getText(commentEditText));
+                    db.collection("users").document(employeeId).collection("comments").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            commentEditText.setText("");
+                            Helper.snackbar(v, getResources().getString(R.string.comment_success));
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Helper.snackbar(v, getResources().getString(R.string.comment_failure));
+                        }
+                    });
+                }
             }
         });
     }

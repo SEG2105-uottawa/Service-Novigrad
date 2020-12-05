@@ -49,6 +49,15 @@
         android:textAppearance="?attr/textAppearanceBody1"
         android:layout_marginBottom="10dp"
         />
+
+    <TextView
+        android:id="@+id/leaveRatingTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/leave_rating"
+        android:textSize="28sp" />
+
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
@@ -56,4 +65,26 @@
         android:progressBackgroundTint="#EEEEEE"
         android:progressTint="#EEEE00"
         android:stepSize="0.1" />
+
+    <TextView
+        android:id="@+id/leaveCommentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/leave_comment"
+        android:textSize="28sp" />
+
+    <EditText
+        android:id="@+id/commentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/submitCommentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/submit_comment" />
 </LinearLayout>
