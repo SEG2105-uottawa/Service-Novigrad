@@ -15,6 +15,7 @@ public class ServiceRequest {
     private DocumentReference service, customer, employee;
     private final String id;
     private boolean processed, approved;
+    private String firstName, lastName, address, license;
 
 
     public ServiceRequest(DocumentSnapshot requestDoc){
@@ -24,6 +25,12 @@ public class ServiceRequest {
         customer = (DocumentReference) requestDoc.get("customer");
         employee = (DocumentReference) requestDoc.get("employee");
         service = (DocumentReference) requestDoc.get("service");
+
+        HashMap<String, String> form = (HashMap<String, String>) requestDoc.get("form");
+        firstName = form.get("firstName");
+        lastName = form.get("lastName");
+        address = form.get("streetNum") + " " + form.get("streetName");
+        license = form.get("license");
     }
 
     public boolean isProcessed() {
@@ -61,6 +68,22 @@ public class ServiceRequest {
 
     public DocumentReference getEmployee() {
         return employee;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getLicense() {
+        return license;
     }
 
     @Exclude

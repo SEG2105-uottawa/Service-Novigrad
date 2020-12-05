@@ -48,6 +48,10 @@
     <string name="save_profile">Save Profile</string>
 
     <string name="address">Address</string>
+    <string name="residence">Residence</string>
+    <string name="license">License</string>
+    <string name="photoID">Photo ID</string>
+    <string name="citizenship">Citizenship</string>
 
     <string name="profile_save_success">Successfully saved profile...</string>
     <string name="profile_save_failed">Failed to save profile. Try again.</string>
@@ -70,4 +74,6 @@
     <string name="photo_id_prompt">Please insert a photo of yourself</string>
     <string name="citizenship_prompt">Please insert a photo of your permanent resident card or passport</string>
     <string name="residence_prompt">Please insert a photo of proof of residence below</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
 </resources>

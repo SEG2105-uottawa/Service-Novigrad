@@ -1,6 +1,7 @@
 package com.example.novigrad.employee;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,17 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.novigrad.domain.Customer;
-import com.example.novigrad.domain.Employee;
-import com.example.novigrad.Helper;
 import com.example.novigrad.R;
 import com.example.novigrad.domain.Service;
 import com.example.novigrad.domain.ServiceRequest;
+import com.example.novigrad.shared.RequestViewerActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -67,6 +64,15 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
                         cust = new Customer(task.getResult());
                         customerName.setText(String.format("%s %s", cust.getFirstName(),  cust.getLastName()));
                     }
+                }
+            });
+
+            viewReqButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), RequestViewerActivity.class);
+                    intent.putExtra("id", serviceRequest.getId());
+                    v.getContext().startActivity(intent);
                 }
             });
         }
