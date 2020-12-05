@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".customer.BranchReviewActivity"
+    android:orientation="vertical"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/branchMunicipalityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ottawa"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        />
+    <TextView
+        android:id="@+id/branchEmailAndPhoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email@email.com, 613-999-9999"
+        android:textColor="#555"
+        android:textAppearance="?attr/textAppearanceBody2"
+        />
+
+    <TextView
+        android:id="@+id/branchAddressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="999 Street name (A1A1A1)"
+        android:textColor="#555"
+        android:textAppearance="?attr/textAppearanceBody2"
+        />
+    <TextView
+        android:id="@+id/branchTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8:00am - 4:30pm"
+        android:textColor="#555"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/branchDaysTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:layout_marginBottom="10dp"
+        />
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressBackgroundTint="#EEEEEE"
+        android:progressTint="#EEEE00"
+        android:stepSize="0.1" />
+</LinearLayout>
