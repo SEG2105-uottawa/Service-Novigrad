@@ -61,6 +61,7 @@ public class BranchReviewActivity extends AppCompatActivity {
         db.collection("users").document(employeeId).collection("reviews").document(mAuth.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.get("rating") != null)
                 review.setRating(documentSnapshot.getDouble("rating").floatValue());
             }
         });
