@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.novigrad.customer.BranchSearchActivity;
@@ -31,6 +32,9 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        findViewById(R.id.btnStart).setVisibility(View.INVISIBLE);
+        findViewById(R.id.btnLogin).setVisibility(View.INVISIBLE);
+
         this.db = FirebaseFirestore.getInstance();
         this.mAuth = FirebaseAuth.getInstance();
         this.getUser();
@@ -47,6 +51,8 @@ public class WelcomeActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     setUser(new User(task.getResult()));
                     setMessage();
+                    findViewById(R.id.btnStart).setVisibility(View.VISIBLE);
+                    findViewById(R.id.btnLogin).setVisibility(View.VISIBLE);
                 } else {
                     WelcomeActivity.this.setErrorMessage();
                 }
