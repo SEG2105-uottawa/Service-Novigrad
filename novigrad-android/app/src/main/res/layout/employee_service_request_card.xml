@@ -35,17 +35,10 @@
             android:layout_height="match_parent">
 
             <Button
-                android:text="Approve"
+                android:text="View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/requestApproveButton"
-                style="@style/Widget.AppCompat.Button" />
-
-            <Button
-                android:text="Reject"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/requestRejectButton"
+                android:id="@+id/requestViewButton"
                 style="@style/Widget.AppCompat.Button" />
 
         </LinearLayout>

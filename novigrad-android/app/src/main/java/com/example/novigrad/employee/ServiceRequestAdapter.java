@@ -36,7 +36,7 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView serviceName;
         private TextView customerName;
-        private Button approveReq, rejectReq;
+        private Button viewReqButton;
         private Service service;
         private Customer cust;
 
@@ -44,8 +44,7 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
             super(itemView);
             this.serviceName = itemView.findViewById(R.id.serviceRequestName);
             this.customerName = itemView.findViewById(R.id.customerRequestName);
-            this.approveReq = itemView.findViewById(R.id.requestApproveButton);
-            this.rejectReq = itemView.findViewById(R.id.requestRejectButton);
+            this.viewReqButton = itemView.findViewById(R.id.requestViewButton);
         }
 
         public void bind(final ServiceRequest serviceRequest, final int position, final ServiceRequestAdapter adapter){
@@ -68,40 +67,6 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
                         cust = new Customer(task.getResult());
                         customerName.setText(String.format("%s %s", cust.getFirstName(),  cust.getLastName()));
                     }
-                }
-            });
-
-            // currently, let the customer see if their request has been approved before destroying the servicerequest instance
-            // delete the request from the branch
-            approveReq.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View v) {
-                    adapter.serviceRequests.remove(getAdapterPosition());
-                    adapter.notifyDataSetChanged();
-                    FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    DocumentReference serviceRequestDocument = db.collection("service_requests").document(serviceRequest.getId());
-                    serviceRequestDocument.update(serviceRequest.update(true, true)).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Helper.snackbar(null, "Updated Request");
-                        }
-                    });
-                }
-            });
-
-            rejectReq.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View v) {
-                    adapter.serviceRequests.remove(getAdapterPosition());
-                    adapter.notifyDataSetChanged();
-                    FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    DocumentReference serviceRequestDocument = db.collection("service_requests").document(serviceRequest.getId());
-                    serviceRequestDocument.update(serviceRequest.update(true, false)).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Helper.snackbar(null, "Updated Request");
-                        }
-                    });
                 }
             });
         }
