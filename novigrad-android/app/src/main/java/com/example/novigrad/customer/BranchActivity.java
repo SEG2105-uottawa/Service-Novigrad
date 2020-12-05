@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -13,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -25,6 +28,7 @@ import com.example.novigrad.domain.Service;
 import com.example.novigrad.domain.ServiceRequest;
 import com.example.novigrad.validation.ProfileData;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
@@ -33,7 +37,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.google.rpc.Help;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,6 +51,7 @@ import java.util.Map;
 public class BranchActivity extends AppCompatActivity {
     FirebaseFirestore db;
     FirebaseAuth mAuth;
+    StorageReference sr;
 
     Employee employee;
     HashMap<String, Service> services;
@@ -49,8 +59,9 @@ public class BranchActivity extends AppCompatActivity {
     ArrayList<String> serviceNames;
 
     DatePicker dateOfBirth;
-    TextView municipality, emailAndPhone, address, time, days, streetName, formTitle; // branch info
-    TextInputLayout firstName, lastName;
+    TextView municipality, emailAndPhone, address, time, days, formTitle; // branch info
+    EditText streetNum, streetName;
+    TextInputLayout firstName, lastName, license;
     Spinner serviceListSpinner;
     ArrayAdapter<String> adapter;
     Button submitForm;
@@ -65,16 +76,19 @@ public class BranchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_branch);
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+        sr = FirebaseStorage.getInstance().getReference();
 
         municipality = findViewById(R.id.branchServReqMunicipalityTextView);
         emailAndPhone = findViewById(R.id.branchServReqEmailPhoneTextView);
         address = findViewById(R.id.branchServReqAddressTextView);
         time = findViewById(R.id.branchServReqTimeTextView);
         days = findViewById(R.id.branchServReqDaysTextView);
+        streetNum = findViewById(R.id.editCustStreetNum);
         streetName = findViewById(R.id.editCustStreetName);
         formTitle = findViewById(R.id.ServiceRequestTitle);
         firstName = findViewById(R.id.CustomerFirstNameInput);
         lastName = findViewById(R.id.CustomerLastNameInput);
+        license = findViewById(R.id.LicenseTypeInput);
         dateOfBirth = findViewById(R.id.CustomerDOBDatePicker);
         serviceListSpinner = (Spinner) findViewById(R.id.serviceSelectSpinner);
 
@@ -134,10 +148,25 @@ public class BranchActivity extends AppCompatActivity {
                 String dob = dateOfBirth.getDayOfMonth() + "/" + dateOfBirth.getMonth() + "/" +
                         dateOfBirth.getYear();
                 form.put("dob", dob);
+                form.put("firstName", Helper.getText(firstName));
+                form.put("lastName", Helper.getText(lastName));
+                form.put("streetNum", Helper.getText(streetNum));
+                form.put("streetName", Helper.getText(streetName));
+                form.put("license", Helper.getText(license));
 
-                db.collection("service_requests").add(request).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                DocumentReference reference = db.collection("service_requests").document();
+                String id = reference.getId();
+                uploadImages(id, "residence", residenceDoc);
+                if (healthCardLayout.getVisibility() != View.GONE) {
+                    uploadImages(id, "citizenship", citizenshipDoc);
+                }
+                if (photoIDLayout.getVisibility() != View.GONE) {
+                    uploadImages(id, "photoID", photoIDDoc);
+                }
+
+                db.collection("service_requests").document(id).set(request).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
+                    public void onSuccess(Void aVoid) {
                         Helper.snackbar(v, "Successfully added service request");
                     }
                 });
@@ -234,5 +263,34 @@ public class BranchActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    void uploadImages(String id, String documentName, ImageView imageView) {
+        if (imageView.getDrawable() == null) {
+            return;
+        }
+
+        imageView.setDrawingCacheEnabled(true);
+        imageView.buildDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+        StorageReference ref = sr.child(id+"_"+documentName);
+
+        UploadTask uploadTask = ref.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+            }
+        });
     }
 }

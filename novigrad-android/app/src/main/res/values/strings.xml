@@ -47,6 +47,8 @@
     <string name="phone">Phone Number</string>
     <string name="save_profile">Save Profile</string>
 
+    <string name="address">Address</string>
+
     <string name="profile_save_success">Successfully saved profile...</string>
     <string name="profile_save_failed">Failed to save profile. Try again.</string>
 
