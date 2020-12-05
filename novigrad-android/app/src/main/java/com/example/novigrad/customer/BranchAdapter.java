@@ -33,7 +33,7 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private String id;
         private TextView municipality, emailAndPhone, address, time, days, serviceNames;
-        private Button viewBranch;
+        private Button viewBranch, reviewBranchButton;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             municipality = itemView.findViewById(R.id.branchMunicipalityTextView);
@@ -43,6 +43,7 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.ViewHolder
             days = itemView.findViewById(R.id.branchDaysTextView);
             viewBranch = itemView.findViewById(R.id.branchViewBtn);
             serviceNames = itemView.findViewById(R.id.branchServicesTextView);
+            reviewBranchButton = itemView.findViewById(R.id.branchReviewButton);
         }
 
         @RequiresApi(api = Build.VERSION_CODES.O)
@@ -67,6 +68,15 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.ViewHolder
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), BranchActivity.class);
+                    intent.putExtra("id", employee.getId());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            reviewBranchButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), BranchReviewActivity.class);
                     intent.putExtra("id", employee.getId());
                     v.getContext().startActivity(intent);
                 }

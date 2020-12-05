@@ -76,4 +76,5 @@
     <string name="residence_prompt">Please insert a photo of proof of residence below</string>
     <string name="approve">Approve</string>
     <string name="reject">Reject</string>
+    <string name="review">Review</string>
 </resources>
