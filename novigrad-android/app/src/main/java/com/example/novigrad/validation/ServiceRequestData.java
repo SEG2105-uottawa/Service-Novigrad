@@ -121,7 +121,7 @@ public class ServiceRequestData {
     }
 
     private boolean dateOfBirthIsValid(){
-        return Period.between(LocalDate.of(year, month, day), LocalDate.now()).getDays() > 0;
+        return Period.between(LocalDate.of(year, month+1, day), LocalDate.now()).getYears() > 0;
     }
 
 }

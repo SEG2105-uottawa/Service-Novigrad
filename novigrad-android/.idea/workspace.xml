@@ -31,20 +31,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed1f398-d2c9-496f-8046-69a915465edf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/customer/BranchActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/customer/BranchActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_branch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_branch.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/validation/ServiceRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/validation/ServiceRequestData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_25]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -132,7 +127,7 @@
       <recent name="C:\Users\danie\Desktop\seg2105f20-project-project_gr_69" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.LoginActivity">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="ProfileDataUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="Novigrad.app" />
       <extension name="coverage">
@@ -588,37 +583,37 @@
     </state>
     <state x="963" y="105" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603986072560" />
     <state x="963" y="105" key="FileChooserDialogImpl/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603932741802" />
-    <state width="1859" height="278" key="GridCell.Tab.0.bottom" timestamp="1607180258869">
+    <state width="1339" height="262" key="GridCell.Tab.0.bottom" timestamp="1607215430371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607062801861" />
+    <state width="1339" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607215430371" />
     <state width="1877" height="360" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1606629010566" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607180258869" />
     <state width="2003" height="248" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288339" />
     <state width="1877" height="201" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1607120617374" />
-    <state width="1859" height="278" key="GridCell.Tab.0.center" timestamp="1607180258869">
+    <state width="1339" height="262" key="GridCell.Tab.0.center" timestamp="1607215430371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="278" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607062801861" />
+    <state width="1339" height="262" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607215430371" />
     <state width="1877" height="360" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1606629010565" />
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607180258869" />
     <state width="2003" height="248" key="GridCell.Tab.0.center/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288339" />
     <state width="1877" height="201" key="GridCell.Tab.0.center/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1607120617374" />
-    <state width="1859" height="278" key="GridCell.Tab.0.left" timestamp="1607180258869">
+    <state width="1339" height="262" key="GridCell.Tab.0.left" timestamp="1607215430371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="278" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607062801861" />
+    <state width="1339" height="262" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607215430371" />
     <state width="1877" height="360" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1606629010565" />
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607180258869" />
     <state width="2003" height="248" key="GridCell.Tab.0.left/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@-2560.-188.2048.1112" timestamp="1602128288338" />
     <state width="1877" height="201" key="GridCell.Tab.0.left/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1607120617374" />
-    <state width="1859" height="278" key="GridCell.Tab.0.right" timestamp="1607180258869">
+    <state width="1339" height="262" key="GridCell.Tab.0.right" timestamp="1607215430371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="278" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607062801861" />
+    <state width="1339" height="262" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607215430371" />
     <state width="1877" height="360" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1606629010566" />
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603922436824" />
     <state width="1859" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607180258869" />
@@ -658,10 +653,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="499" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605897578384" />
-    <state x="-1607" y="0" width="1623" height="1026" key="dock-window-1" timestamp="1607212067962">
+    <state x="-1607" y="0" width="1623" height="1026" key="dock-window-1" timestamp="1607216283383">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1607" y="0" width="1623" height="1026" key="dock-window-1/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607212067962" />
+    <state x="-1607" y="0" width="1623" height="1026" key="dock-window-1/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607216283383" />
     <state x="2013" y="-7" width="1386" height="848" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1606625315722" />
     <state x="2029" y="20" width="1474" height="889" key="dock-window-1/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606074771953" />
     <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1607113100724">
