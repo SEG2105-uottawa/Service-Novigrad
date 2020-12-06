@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".employee.ViewCommentActivity"></activity>
         <activity android:name=".customer.BranchReviewActivity" />
-        <activity android:name=".shared.RequestViewerActivity" />
+        <activity android:name=".employee.RequestViewerActivity" />
         <activity android:name=".customer.CustomerServiceRequestsActivity" />
         <activity android:name=".customer.BranchActivity" />
         <activity android:name=".customer.BranchSearchActivity" />

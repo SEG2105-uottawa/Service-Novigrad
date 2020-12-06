@@ -15,7 +15,6 @@ import com.example.novigrad.domain.Customer;
 import com.example.novigrad.R;
 import com.example.novigrad.domain.Service;
 import com.example.novigrad.domain.ServiceRequest;
-import com.example.novigrad.shared.RequestViewerActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
