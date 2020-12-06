@@ -38,6 +38,22 @@ public class ServiceRequestData {
         this.residenceAdded = activity.isResidenceDocAdded;
     }
 
+    public ServiceRequestData(String firstName, String lastName, String streetName, String license, String streetNum, int year, int day, int month, boolean driversLicenseReq, boolean photoIDReq, boolean healthCardReq, boolean residenceAdded, boolean photoIDAdded, boolean citizenAdded) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.streetName = streetName;
+        this.license = license;
+        this.streetNum = streetNum;
+        this.year = year;
+        this.day = day;
+        this.month = month;
+        this.driversLicenseReq = driversLicenseReq;
+        this.photoIDReq = photoIDReq;
+        this.healthCardReq = healthCardReq;
+        this.residenceAdded = residenceAdded;
+        this.photoIDAdded = photoIDAdded;
+        this.citizenAdded = citizenAdded;
+    }
 
     public boolean isValid(View view){
 

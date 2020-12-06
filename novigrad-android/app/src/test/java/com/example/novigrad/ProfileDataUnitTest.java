@@ -14,7 +14,7 @@ public class ProfileDataUnitTest {
     String invalidPhone1 = "123456789";
     String invalidPhone2 = "ABCDEFGHIJ";
 
-    ProfileData nullData = new ProfileData(null, null, null, null, null);
+    ProfileData nullData = new ProfileData(null, null, null, null, null, 0, 0, null);
 
     @Test
     public void postal() {
