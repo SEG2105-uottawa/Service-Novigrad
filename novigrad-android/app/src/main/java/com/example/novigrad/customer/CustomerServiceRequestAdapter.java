@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.novigrad.Helper;
@@ -58,13 +59,13 @@ public class CustomerServiceRequestAdapter extends RecyclerView.Adapter<Customer
                         serviceName.setText(service.getName());
                         if (!serviceRequest.isProcessed()) {
                             status.setText("Processing");
-                            status.setTextColor(R.color.colorProcessing);
+                            status.setTextColor(ContextCompat.getColor(ViewHolder.this.itemView.getContext(), R.color.colorProcessing));
                         } else if (serviceRequest.isApproved()) {
                             status.setText("Approved");
-                            status.setTextColor(R.color.colorAccepted);
+                            status.setTextColor(ContextCompat.getColor(ViewHolder.this.itemView.getContext(), R.color.colorAccepted));
                         } else {
                             status.setText("Rejected");
-                            status.setTextColor(R.color.colorRejected);
+                            status.setTextColor(ContextCompat.getColor(ViewHolder.this.itemView.getContext(), R.color.colorRejected));
                         }
                     }
                 }
