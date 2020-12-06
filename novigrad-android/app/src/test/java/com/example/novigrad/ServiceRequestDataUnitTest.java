@@ -47,4 +47,24 @@ public class ServiceRequestDataUnitTest {
     public void reqIsInvalid() {
         assertFalse(new ServiceRequestData(validName, validName, validName, validLicense, validName, validYear, validDay, validMonth, true, false, false, false, false,false).isValid(null));
     }
+
+    @Test
+    public void nameAndLicenseIsInvalid() {
+        assertFalse(new ServiceRequestData(invalidName, invalidName, validName, invalidLicense, validName, validYear, validDay, validMonth, false, false, false, false, false,false).isValid(null));
+    }
+
+    @Test
+    public void dobAndReqIsInvalid() {
+        assertFalse(new ServiceRequestData(validName, validName, validName, validLicense, validName, invalidYear, validDay, validMonth, true, true, true, true, false,false).isValid(null));
+    }
+
+    @Test
+    public void nameAndDobIsInvalid() {
+        assertFalse(new ServiceRequestData(invalidName, invalidName, validName, validLicense, validName, invalidYear, validDay, validMonth, false, false, false, false, false,false).isValid(null));
+    }
+
+    @Test
+    public void licenseAndDobIsInvalid() {
+        assertFalse(new ServiceRequestData(validName, validName, validName, invalidLicense, validName, invalidYear, validDay, validMonth, false, false, false, false, false,false).isValid(null));
+    }
 }
