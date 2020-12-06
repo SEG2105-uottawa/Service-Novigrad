@@ -1,10 +1,17 @@
 package com.example.novigrad.domain;
 
+import android.widget.RatingBar;
+
+import androidx.annotation.NonNull;
+
 import com.example.novigrad.validation.ProfileData;
 import com.example.novigrad.validation.RegisterData;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -51,5 +58,21 @@ public class Employee extends User {
 
     public ProfileData getProfile() {
         return profile;
+    }
+
+    public void setRating(final RatingBar ratingBar) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users").document(getId()).collection("reviews").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                float ratingSum =0;
+
+                QuerySnapshot reviews = task.getResult();
+                for (DocumentSnapshot ratingDocument : reviews) {
+                    ratingSum += ratingDocument.getDouble("rating").floatValue();
+                }
+                ratingBar.setRating(ratingSum / reviews.size());
+            }
+        });
     }
 }

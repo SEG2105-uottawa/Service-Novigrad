@@ -51,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
                 // Request is completed
                 if (task.isSuccessful()) {
                     Employee employee = new Employee(task.getResult());
+                    employee.setRating(findViewById(R.id.RatingBar));
                     if (employee.getProfile() == null) {
                         createErrorMessage();
                     } else {
@@ -97,6 +98,11 @@ public class ProfileActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         getEmployee();
+    }
+
+    public void onViewCommments(View view) {
+        Intent intent = new Intent(this, ViewCommentActivity.class);
+        startActivity(intent);
     }
 
 }
