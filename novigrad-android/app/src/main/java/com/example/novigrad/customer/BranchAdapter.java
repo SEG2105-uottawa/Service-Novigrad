@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,7 +18,13 @@ import com.example.novigrad.R;
 import com.example.novigrad.domain.Employee;
 import com.example.novigrad.employee.ProfileActivity;
 import com.example.novigrad.validation.ProfileData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.sql.Struct;
 import java.util.ArrayList;
@@ -28,12 +35,15 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.ViewHolder
     private Context context;
     private Map<DocumentReference, String> serviceReferenceToName;
     private ArrayList<Employee> branches = new ArrayList<>();
+    private ArrayList<Float> ratings = new ArrayList<>();
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        private FirebaseFirestore db;
         private String id;
         private TextView municipality, emailAndPhone, address, time, days, serviceNames;
         private Button viewBranch, reviewBranchButton;
+        private RatingBar rating;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             municipality = itemView.findViewById(R.id.branchMunicipalityTextView);
@@ -44,10 +54,25 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.ViewHolder
             viewBranch = itemView.findViewById(R.id.branchViewBtn);
             serviceNames = itemView.findViewById(R.id.branchServicesTextView);
             reviewBranchButton = itemView.findViewById(R.id.branchReviewButton);
+            rating = itemView.findViewById(R.id.branchReviewRating);
         }
 
         @RequiresApi(api = Build.VERSION_CODES.O)
         public void bind(final Employee employee, Map<DocumentReference, String> serviceReferenceToName) {
+            db = FirebaseFirestore.getInstance();
+            db.collection("users").document(employee.getId()).collection("reviews").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    float ratingSum =0;
+
+                    QuerySnapshot reviews = task.getResult();
+                    for (DocumentSnapshot ratingDocument : reviews) {
+                        ratingSum += ratingDocument.getDouble("rating").floatValue();
+                    }
+                    rating.setRating(ratingSum / reviews.size());
+                }
+            });
+
             ProfileData branch = employee.getProfile();
             municipality.setText(branch.municipality);
             emailAndPhone.setText(String.format("%s - %s", employee.getEmail(), branch.getPhone()));
