@@ -18,6 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -61,7 +62,8 @@ public class BranchActivity extends AppCompatActivity {
     public DatePicker dateOfBirth;
     TextView municipality, emailAndPhone, address, time, days, formTitle; // branch info
     public EditText streetNum, streetName;
-    public TextInputLayout firstName, lastName, license;
+    public TextInputLayout firstName, lastName;
+    public RadioGroup license;
     Spinner serviceListSpinner;
     ArrayAdapter<String> adapter;
     Button submitForm;
@@ -90,7 +92,7 @@ public class BranchActivity extends AppCompatActivity {
         formTitle = findViewById(R.id.ServiceRequestTitle);
         firstName = findViewById(R.id.CustomerFirstNameInput);
         lastName = findViewById(R.id.CustomerLastNameInput);
-        license = findViewById(R.id.LicenseTypeInput);
+        license = findViewById(R.id.LicenseRadioGroup);
         dateOfBirth = findViewById(R.id.CustomerDOBDatePicker);
 
         serviceListSpinner = (Spinner) findViewById(R.id.serviceSelectSpinner);
@@ -291,7 +293,7 @@ public class BranchActivity extends AppCompatActivity {
         form.put("lastName", Helper.getText(lastName));
         form.put("streetNum", Helper.getText(streetNum));
         form.put("streetName", Helper.getText(streetName));
-        form.put("license", Helper.getText(license));
+        form.put("license", Helper.getSelectedRadioText(license));
 
         DocumentReference reference = db.collection("service_requests").document();
         String id = reference.getId();
@@ -303,6 +305,7 @@ public class BranchActivity extends AppCompatActivity {
             uploadImages(id, "photoID", photoIDDoc);
         }
 
+        submitForm.setVisibility(View.INVISIBLE);
         db.collection("service_requests").document(id).set(request).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
@@ -311,6 +314,7 @@ public class BranchActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                submitForm.setVisibility(View.VISIBLE);
                 Helper.snackbar(view, "Failed to add service request");
             }
         });

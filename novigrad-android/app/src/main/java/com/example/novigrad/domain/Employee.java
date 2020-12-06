@@ -14,14 +14,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Employee extends User {
     public static String role = "Employee";
     private ArrayList<DocumentReference> services;
     private ArrayList<DocumentReference> customers;
     private ProfileData profile;
-    private double rating;
 
     public Employee(String id, String firstName, String lastName, String email) {
         super(id, firstName, lastName, email, role);

@@ -24,7 +24,7 @@ public class ServiceRequestData {
     public ServiceRequestData(BranchActivity activity){
         this.firstName = Helper.getText(activity.firstName);
         this.lastName = Helper.getText(activity.lastName);
-        this.license = Helper.getText(activity.license);
+        this.license = Helper.getSelectedRadioText(activity.license);
         this.streetName = Helper.getText(activity.streetName);
         this.streetNum = Helper.getText(activity.streetNum);
         this.year = activity.dateOfBirth.getYear();
@@ -95,7 +95,7 @@ public class ServiceRequestData {
         }
 
         // License Validation
-        if (!Helper.stringIsValid(license) && driversLicenseReq && !licenseIsValid()){
+        if ((!Helper.stringIsValid(license) || !licenseIsValid()) && driversLicenseReq){
             Helper.snackbar(view, "Invalid License Type");
             return false;
         }
