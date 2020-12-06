@@ -130,6 +130,8 @@ public class BranchSearchActivity extends AppCompatActivity {
                 QuerySnapshot results = getEmployees.getResult();
                 for (DocumentSnapshot document: results.getDocuments()) {
                     Employee employee = new Employee(document);
+                    Task<QuerySnapshot> reviews = db.collection("users").document(employee.getId()).collection("reviews").get();
+
                     if (employee.getProfile() != null) {
                         employees.add(employee);
                     }
@@ -164,6 +166,7 @@ public class BranchSearchActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+        getData();
     }
 
 }
