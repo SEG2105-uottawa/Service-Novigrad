@@ -31,21 +31,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed1f398-d2c9-496f-8046-69a915465edf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/shared/RequestViewerActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/domain/ServiceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/domain/ServiceRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/RequestViewerActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceRequestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/employee/ServiceRequestAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_request_viewer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_request_viewer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/customer/BranchActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/novigrad/customer/BranchActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_branch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_branch.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3_XL_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_25]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -68,8 +67,8 @@
       <list>
         <option value="Enum" />
         <option value="layoutResourceFile_vertical" />
-        <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -105,14 +104,14 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.1714240505">
+      <recent name="com.example.novigrad.customer" />
+    </key>
     <key name="android.template.-462884529">
       <recent name="com.example.novigrad.customer" />
     </key>
     <key name="android.template.880127719">
       <recent name="com.example.novigrad.employee" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\danie\Desktop\seg2105f20-project-project_gr_69" />
     </key>
     <key name="android.template.203488833">
       <recent name="com.example.novigrad.employee" />
@@ -129,8 +128,8 @@
     <key name="android.template.-237804778">
       <recent name="com.example.novigrad.admin" />
     </key>
-    <key name="android.template.1714240505">
-      <recent name="com.example.novigrad.customer" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\Desktop\seg2105f20-project-project_gr_69" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.LoginActivity">
@@ -464,9 +463,9 @@
       <item itemvalue="Android App.novigrad-android.Novigrad.app" />
       <item itemvalue="Android App.CustomerActivity" />
       <item itemvalue="Android App.LoginActivity" />
+      <item itemvalue="Android App.BranchActivity" />
       <item itemvalue="Android JUnit.ProfileDataUnitTest" />
       <item itemvalue="Android JUnit.ProfileDataUnitTest.postal" />
-      <item itemvalue="Android App.BranchActivity" />
     </list>
     <recent_temporary>
       <list>
@@ -512,10 +511,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="477" y="266" key="#PSD" timestamp="1605749718834">
+    <state x="477" y="266" key="#PSD" timestamp="1607204231559">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="477" y="266" key="#PSD/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605749718834" />
+    <state x="477" y="266" key="#PSD/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607204231559" />
     <state x="477" y="266" key="#PSD/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1603939858247" />
     <state x="563" y="140" key="#ProfileDataUnitTest" timestamp="1606005628619">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -659,9 +658,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="499" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605897578384" />
-    <state x="2013" y="-7" width="1386" height="848" maximized="true" key="dock-window-1" timestamp="1606625315722">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="-1607" y="0" width="1623" height="1026" key="dock-window-1" timestamp="1607212067962">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1607" y="0" width="1623" height="1026" key="dock-window-1/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607212067962" />
     <state x="2013" y="-7" width="1386" height="848" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040/-2560.-188.2048.1112@0.0.1920.1040" timestamp="1606625315722" />
     <state x="2029" y="20" width="1474" height="889" key="dock-window-1/1920.0.1920.1040/-2560.-188.2048.1112/0.0.1920.1040@0.0.1920.1040" timestamp="1606074771953" />
     <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1607113100724">

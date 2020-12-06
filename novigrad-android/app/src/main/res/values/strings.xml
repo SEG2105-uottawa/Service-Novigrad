@@ -66,7 +66,7 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
-    <string name="license_type_hint">Enter License Type (G, G1, G2, etc.)</string>
+    <string name="license_type_hint">Enter License Type (G, G1, G2)</string>
     <string name="customer_dob_title">Date of Birth</string>
     <string name="submit_service_request">Submit Service Request</string>
     <string name="service_req_service_sel">Select a Service</string>

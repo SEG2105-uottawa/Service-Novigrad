@@ -25,8 +25,8 @@ import com.example.novigrad.Helper;
 import com.example.novigrad.R;
 import com.example.novigrad.domain.Employee;
 import com.example.novigrad.domain.Service;
-import com.example.novigrad.domain.ServiceRequest;
 import com.example.novigrad.validation.ProfileData;
+import com.example.novigrad.validation.ServiceRequestData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -58,17 +58,18 @@ public class BranchActivity extends AppCompatActivity {
     Service service;
     ArrayList<String> serviceNames;
 
-    DatePicker dateOfBirth;
+    public DatePicker dateOfBirth;
     TextView municipality, emailAndPhone, address, time, days, formTitle; // branch info
-    EditText streetNum, streetName;
-    TextInputLayout firstName, lastName, license;
+    public EditText streetNum, streetName;
+    public TextInputLayout firstName, lastName, license;
     Spinner serviceListSpinner;
     ArrayAdapter<String> adapter;
     Button submitForm;
     ImageView residenceDoc, citizenshipDoc, photoIDDoc;
+    public boolean isResidenceDocAdded, isCitizenshipDocAdded, isPhotoIDDocAdded;
     private static final int RESULT_LOAD_IMAGE_RES = 1, RESULT_LOAD_IMAGE_CIT = 2, RESULT_LOAD_IMAGE_PID = 3;
 
-    LinearLayout driversLicenseLayout, healthCardLayout, photoIDLayout, formLayout;
+    LinearLayout driversLicenseLayout, healthCardLayout, photoIDLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +84,7 @@ public class BranchActivity extends AppCompatActivity {
         address = findViewById(R.id.branchServReqAddressTextView);
         time = findViewById(R.id.branchServReqTimeTextView);
         days = findViewById(R.id.branchServReqDaysTextView);
+
         streetNum = findViewById(R.id.editCustStreetNum);
         streetName = findViewById(R.id.editCustStreetName);
         formTitle = findViewById(R.id.ServiceRequestTitle);
@@ -90,13 +92,12 @@ public class BranchActivity extends AppCompatActivity {
         lastName = findViewById(R.id.CustomerLastNameInput);
         license = findViewById(R.id.LicenseTypeInput);
         dateOfBirth = findViewById(R.id.CustomerDOBDatePicker);
-        serviceListSpinner = (Spinner) findViewById(R.id.serviceSelectSpinner);
 
+        serviceListSpinner = (Spinner) findViewById(R.id.serviceSelectSpinner);
         driversLicenseLayout = findViewById(R.id.LicenseFormLayout);
         healthCardLayout = findViewById(R.id.HealthCardFormLayout);
         photoIDLayout = findViewById(R.id.PhotoIDLayout);
         submitForm = findViewById(R.id.custSubmitServReqBtn);
-
 
         String uid = (String)getIntent().getExtras().get("id");
         services = new HashMap<>();
@@ -106,8 +107,11 @@ public class BranchActivity extends AppCompatActivity {
         serviceListSpinner.setAdapter(adapter);
 
         residenceDoc = findViewById(R.id.residenceImageView);
+        isResidenceDocAdded = false;
         citizenshipDoc = findViewById(R.id.citizenshipImageView);
+        isCitizenshipDocAdded = false;
         photoIDDoc = findViewById(R.id.photoIDImageView);
+        isPhotoIDDocAdded = false;
 
         residenceDoc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,45 +138,6 @@ public class BranchActivity extends AppCompatActivity {
         });
 
 
-        submitForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) { // need to add user documents and info
-                Map<String, Object> request = new HashMap<>();
-                Map<String, Object> form = new HashMap<>();
-                request.put("approved", false);
-                request.put("processed", false);
-                request.put("customer", db.collection("users").document(mAuth.getCurrentUser().getUid()));
-                request.put("employee", db.collection("users").document(employee.getId()));
-                request.put("service", db.collection(Service.COLLECTION).document(service.getId()));
-                request.put("form", form);
-                String dob = dateOfBirth.getDayOfMonth() + "/" + dateOfBirth.getMonth() + "/" +
-                        dateOfBirth.getYear();
-                form.put("dob", dob);
-                form.put("firstName", Helper.getText(firstName));
-                form.put("lastName", Helper.getText(lastName));
-                form.put("streetNum", Helper.getText(streetNum));
-                form.put("streetName", Helper.getText(streetName));
-                form.put("license", Helper.getText(license));
-
-                DocumentReference reference = db.collection("service_requests").document();
-                String id = reference.getId();
-                uploadImages(id, "residence", residenceDoc);
-                if (healthCardLayout.getVisibility() != View.GONE) {
-                    uploadImages(id, "citizenship", citizenshipDoc);
-                }
-                if (photoIDLayout.getVisibility() != View.GONE) {
-                    uploadImages(id, "photoID", photoIDDoc);
-                }
-
-                db.collection("service_requests").document(id).set(request).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Helper.snackbar(v, "Successfully added service request");
-                    }
-                });
-                System.out.println("SHOULD WORK!");
-            }
-        });
 
         db.collection("users").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -252,12 +217,21 @@ public class BranchActivity extends AppCompatActivity {
             Uri selectedImage = data.getData();
             switch(requestCode) {
                 case (RESULT_LOAD_IMAGE_RES):
+                    if (!isResidenceDocAdded) {
+                        isResidenceDocAdded = true;
+                    }
                     residenceDoc.setImageURI(selectedImage);
                     break;
                 case (RESULT_LOAD_IMAGE_CIT):
+                    if (!isCitizenshipDocAdded) {
+                        isCitizenshipDocAdded = true;
+                    }
                     citizenshipDoc.setImageURI(selectedImage);
                     break;
                 case (RESULT_LOAD_IMAGE_PID):
+                    if (!isPhotoIDDocAdded) {
+                        isPhotoIDDocAdded = true;
+                    }
                     photoIDDoc.setImageURI(selectedImage);
                     break;
             }
@@ -293,4 +267,63 @@ public class BranchActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onSubmit(final View view){
+        ServiceRequestData data = new ServiceRequestData(this);
+        if (data.isValid(view)) {
+            createServiceRequest(view);
+        }
+    }
+
+    private void createServiceRequest(final View view){
+        Map<String, Object> request = new HashMap<>();
+        Map<String, Object> form = new HashMap<>();
+        request.put("approved", false);
+        request.put("processed", false);
+        request.put("customer", db.collection("users").document(mAuth.getCurrentUser().getUid()));
+        request.put("employee", db.collection("users").document(employee.getId()));
+        request.put("service", db.collection(Service.COLLECTION).document(service.getId()));
+        request.put("form", form);
+        String dob = dateOfBirth.getDayOfMonth() + "/" + dateOfBirth.getMonth() + "/" +
+                dateOfBirth.getYear();
+        form.put("dob", dob);
+        form.put("firstName", Helper.getText(firstName));
+        form.put("lastName", Helper.getText(lastName));
+        form.put("streetNum", Helper.getText(streetNum));
+        form.put("streetName", Helper.getText(streetName));
+        form.put("license", Helper.getText(license));
+
+        DocumentReference reference = db.collection("service_requests").document();
+        String id = reference.getId();
+        uploadImages(id, "residence", residenceDoc);
+        if (healthCardLayout.getVisibility() != View.GONE) {
+            uploadImages(id, "citizenship", citizenshipDoc);
+        }
+        if (photoIDLayout.getVisibility() != View.GONE) {
+            uploadImages(id, "photoID", photoIDDoc);
+        }
+
+        db.collection("service_requests").document(id).set(request).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Helper.snackbar(view, "Successfully added service request");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Helper.snackbar(view, "Failed to add service request");
+            }
+        });
+    }
+
+    public boolean isRequiredDriversLicense(){
+        return service.getDriversLicenseRequired();
+    }
+    public boolean isRequiredHealthCard(){
+        return service.getHealthCardRequired();
+    }
+    public boolean isRequiredPhotoID(){
+        return service.getPhotoIDRequired();
+    }
+
 }

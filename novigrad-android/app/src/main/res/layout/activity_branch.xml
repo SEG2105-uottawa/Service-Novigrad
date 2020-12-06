@@ -296,7 +296,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/custSubmitServReqBtn"
                         android:layout_weight="1"
-                        android:text="@string/submit_service_request" />
+                        android:text="@string/submit_service_request"
+                        android:onClick="onSubmit" />
             </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
