@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".customer.BranchReviewActivity"></activity>
+        <activity android:name=".employee.ViewCommentActivity"></activity>
+        <activity android:name=".customer.BranchReviewActivity" />
         <activity android:name=".shared.RequestViewerActivity" />
         <activity android:name=".customer.CustomerServiceRequestsActivity" />
         <activity android:name=".customer.BranchActivity" />

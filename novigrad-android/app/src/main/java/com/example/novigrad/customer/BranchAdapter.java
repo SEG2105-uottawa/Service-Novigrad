@@ -59,19 +59,7 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.ViewHolder
 
         @RequiresApi(api = Build.VERSION_CODES.O)
         public void bind(final Employee employee, Map<DocumentReference, String> serviceReferenceToName) {
-            db = FirebaseFirestore.getInstance();
-            db.collection("users").document(employee.getId()).collection("reviews").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    float ratingSum =0;
-
-                    QuerySnapshot reviews = task.getResult();
-                    for (DocumentSnapshot ratingDocument : reviews) {
-                        ratingSum += ratingDocument.getDouble("rating").floatValue();
-                    }
-                    rating.setRating(ratingSum / reviews.size());
-                }
-            });
+            employee.setRating(rating);
 
             ProfileData branch = employee.getProfile();
             municipality.setText(branch.municipality);

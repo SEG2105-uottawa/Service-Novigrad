@@ -83,4 +83,7 @@
     <string name="submit_comment">Submit Comment</string>
     <string name="comment_success">Successfully submitted comment</string>
     <string name="comment_failure">Failed to submit comment</string>
+
+    <string name="current_rating">Current Rating</string>
+    <string name="view_comments">View Comments</string>
 </resources>
