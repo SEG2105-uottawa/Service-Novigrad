@@ -61,6 +61,7 @@ public class BranchActivity extends AppCompatActivity {
 
     public DatePicker dateOfBirth;
     TextView municipality, emailAndPhone, address, time, days, formTitle; // branch info
+    TextView servicePrice;
     public EditText streetNum, streetName;
     public TextInputLayout firstName, lastName;
     public RadioGroup license;
@@ -96,6 +97,7 @@ public class BranchActivity extends AppCompatActivity {
         dateOfBirth = findViewById(R.id.CustomerDOBDatePicker);
 
         serviceListSpinner = (Spinner) findViewById(R.id.serviceSelectSpinner);
+        servicePrice = findViewById(R.id.ServiceCost);
         driversLicenseLayout = findViewById(R.id.LicenseFormLayout);
         healthCardLayout = findViewById(R.id.HealthCardFormLayout);
         photoIDLayout = findViewById(R.id.PhotoIDLayout);
@@ -177,6 +179,9 @@ public class BranchActivity extends AppCompatActivity {
 
                                     formTitle.setText(String.format("%s Request Form", serviceName));
                                     service = services.get(serviceName);
+
+                                    servicePrice.setText("$"+String.format("%.2f",service.getPrice()));
+
                                     if (service.getDriversLicenseRequired()) {
                                         driversLicenseLayout.setVisibility(View.VISIBLE);
                                     } else {
