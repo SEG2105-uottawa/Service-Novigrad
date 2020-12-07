@@ -132,7 +132,7 @@ public class BranchSearchActivity extends AppCompatActivity {
                     Employee employee = new Employee(document);
                     Task<QuerySnapshot> reviews = db.collection("users").document(employee.getId()).collection("reviews").get();
 
-                    if (employee.getProfile() != null) {
+                    if (employee.getProfile() != null && employee.getServices().size() > 0) {
                         employees.add(employee);
                     }
                 }
