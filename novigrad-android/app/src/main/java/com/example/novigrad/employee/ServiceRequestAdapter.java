@@ -55,16 +55,7 @@ public class ServiceRequestAdapter extends RecyclerView.Adapter<ServiceRequestAd
                 }
             });
 
-            serviceRequest.getCustomer().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    // Request is completed
-                    if (task.isSuccessful()) {
-                        cust = new Customer(task.getResult());
-                        customerName.setText(String.format("%s %s", cust.getFirstName(),  cust.getLastName()));
-                    }
-                }
-            });
+            customerName.setText(String.format("%s %s", serviceRequest.getFirstName(),  serviceRequest.getLastName()));
 
             viewReqButton.setOnClickListener(new View.OnClickListener() {
                 @Override
