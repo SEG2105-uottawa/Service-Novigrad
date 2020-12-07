@@ -10,7 +10,6 @@ import java.util.Map;
 public class User {
     private final String id; // Firebase uid
     private String firstName, lastName, email, role;
-    private static final String COLLECTION = "users";
 
     public User(String id, String firstName, String lastName, String email, String role) {
         /* Create a user from registration data */
