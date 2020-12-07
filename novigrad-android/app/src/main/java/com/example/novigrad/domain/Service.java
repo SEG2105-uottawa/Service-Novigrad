@@ -91,7 +91,7 @@ public class Service {
         this.photoIDRequired = photoIDRequired;
     }
 
-    public String getRequiredDocumentsString () {
+    public String getRequiredDocumentsString() {
         StringJoiner required = new StringJoiner(", ");
         if (getPhotoIDRequired()) {
             required.add("Photo ID");
