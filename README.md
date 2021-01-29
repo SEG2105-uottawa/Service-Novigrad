@@ -8,11 +8,11 @@ user: admin | password: admin
 
 ## Members
 
-Albert Quon 300111590
+Albert Quon https://github.com/AlbertQuon
 
-Daniel Holmes 300117657
+Daniel Holmes https://github.com/danielholmes839
 
-Garvin Hui 300114525
+Garvin Hui https://github.com/GarvinH
 
 ## Libraries
 
